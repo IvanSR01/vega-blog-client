@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+	--mainColor: #000;
+	--mainBackgroundColor: #fff;
+	--mainBorderColor: #000;
+	--subColor: #4b4b4b;
+	--inputBackgroundColor: #eeeeee;
+}
+
+body {
+	background-color: var(--mainBackgroundColor);
+}

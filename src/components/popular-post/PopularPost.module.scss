@@ -1,0 +1,25 @@
+.popular {
+	width: 100%;
+	height: 600px;
+	position: relative;
+	color: #fff;
+	.background {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		max-width: none;
+		z-index: -1;
+	}
+	.content__popular {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		height: 100%;
+		padding: clamp(20px, 2vw, 40px);
+	}
+	.title {
+		max-width: 50%;
+		font-size: clamp(32px, 2vw, 42px);
+		font-weight: bold;
+	}
+}

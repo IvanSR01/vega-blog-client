@@ -1,0 +1,28 @@
+.header {
+	width: 100%;
+	padding: 32px 0px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	.logo {
+		width: calc(100% / 5.5);
+		display: flex;
+		align-items: center;
+		gap: 20px;
+		.text {
+			font-size: clamp(16px, 2vw, 32px);
+		}
+	}
+	.nav {
+		display: flex;
+		gap: clamp(10px, 2vw, 40px);
+		a {
+			color: #3b3c4a;
+			font-size: clamp(12px, 1vw, 20px);
+		}
+	}
+	.inputs {
+		display: flex;
+		gap: 30px;
+	}
+}
