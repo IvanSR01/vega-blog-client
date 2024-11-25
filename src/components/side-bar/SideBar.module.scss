@@ -1,0 +1,122 @@
+.layoutSideBar {
+	width: 100%;
+  position: relative;
+  display: flex;
+	justify-content: space-between;
+  gap: 20px;
+  .sideBar {
+    position: sticky;
+    top: 20px;
+    height: 100%;
+		max-height: 100vh;
+		overflow-y: scroll;
+		scrollbar-width: none;
+		min-width: 470px;
+		&::-webkit-scrollbar {
+			display: none; 
+		}
+		@media (max-width: 1200px) {
+			min-width: 0px;
+		}
+    .contentSideBar {
+      width: 450px;
+      top: 10px;
+      border-radius: 12px;
+      padding: 16px;
+			padding-right: 0;
+      height: auto;
+      @media (max-width: 1200px) {
+        width: 100%;
+				padding: 0;
+      }
+      .popularPostS {
+        padding: 20px 32px;
+        border-radius: 10px;
+        border: 1px solid var(--mainBorderColor);
+				margin-bottom: 15px;
+        .title {
+          font-weight: bold;
+          font-size: clamp(20px, 2vw, 24px);
+          margin-bottom: 30px;
+					@media (max-width: 1200px) {
+						font-size: clamp(24px, 2vw, 34px);
+					}
+        }
+        .items {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          .item {
+            display: flex;
+						gap: 10px;
+            .image {
+              width: 140px;
+              height: 100px;
+              object-fit: cover;
+              border-radius: 5px;
+            }
+            .detalis {
+              width: 80%;
+              display: flex;
+              flex-direction: column;
+              .title {
+                font-size: clamp(14px, 1vw, 18px);
+                font-weight: bold;
+								margin: 0;
+								@media (max-width: 1200px) {
+									font-size: clamp(12px, 2vw, 20px);
+								}
+              }
+              .date {
+								padding-top: 8px;
+                font-size: clamp(12px, 1vw, 16px);
+                color: #666;
+								@media (max-width: 1200px) {
+									font-size: clamp(14px, 2vw, 18px);
+								}
+              }
+            }
+          }
+					.category {
+						width: 100%;
+						display: flex;
+						align-items: center;
+						justify-content: space-between;
+						padding: 12px 0px;
+						border-bottom: 2px solid var(--mainBorderColor);
+						cursor: pointer;
+						.text {
+							color: var(--subColor);
+							font-size: 18px;
+							font-weight: 500;
+						}
+						.countPost {
+							color: var(--accentColor);
+							background-color: var(--100AccentColor);
+							border-radius: 5px;
+							height: 28px;
+							width: 38px;
+							display: flex;
+							justify-content: center;
+							align-items: center;
+							font-size: 14px;
+						}
+					}
+					.category:last-child {
+						border-bottom: none;
+					}
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+	.layoutSideBar {
+		flex-direction: column;
+		.sideBar {
+			width: 100%;
+			position: static;
+		}
+	}
+}

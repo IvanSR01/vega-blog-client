@@ -1,0 +1,118 @@
+.contact {
+  width: 100%;
+  padding: clamp(20px, 2vw, 40px) 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  h2 {
+    font-size: clamp(22px, 2vw, 32px);
+    font-weight: bold;
+    color: var(--mainColor);
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(25px, 3vw, 50px);
+		width: 100%;
+		max-width: 1100px;
+    @media (max-width: 1200px) {
+      width: 100%;
+    }
+    .heading {
+      font-size: clamp(32px, 2vw, 42px);
+      font-weight: bold;
+      color: var(--mainColor);
+			margin: 0;
+    }
+    .text {
+      color: var(--subColor);
+      font-size: clamp(16px, 1.6vw, 24px);
+      line-height: 1.4;
+      font-weight: 500;
+    }
+    .items {
+      width: 100%;
+      display: flex;
+      gap: 20px;
+      @media (max-width: 600px) {
+        flex-direction: column;
+      }
+      .item {
+        width: 100%;
+        background: var(--mainBackgroundColor);
+        border: 2px solid var(--mainBorderColor);
+        border-radius: 10px;
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        h3 {
+          color: var(--mainColor);
+          font-weight: 600;
+          font-size: clamp(16px, 2vw, 24px);
+        }
+        p {
+          color: var(--subColor);
+          font-size: clamp(14px, 1vw, 18px);
+          font-weight: 500;
+        }
+      }
+    }
+    .contactForm {
+			margin-top: 10px;
+			background-color: var(--subBackgroundColor);
+			padding: clamp(20px, 2vw, 50px);
+			border-radius: 20px;
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: clamp(20px, 2vw, 30px);
+
+        .formGroup {
+          display: flex;
+          gap: 16px;
+
+          input {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border: 1px solid var(--mainBorderColor);
+            border-radius: 8px;
+            color: var(--mainColor);
+          }
+        }
+
+        textarea {
+          width: 100%;
+          padding: 12px;
+          font-size: 16px;
+          border: 1px solid var(--mainBorderColor);
+          border-radius: 8px;
+          color: var(--mainColor);
+          resize: none;
+        }
+
+        textarea {
+          height: 120px;
+        }
+
+        .privacyText {
+          font-size: 14px;
+          color: var(--subColor);
+					font-weight: 500;
+          a {
+            color: var(--accentColor);
+          }
+        }
+				button {
+					max-width: 180px;
+					@media (max-width: 600px) {
+						max-width: none;
+					}
+				}
+      }
+    }
+  }
+}

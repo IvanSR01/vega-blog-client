@@ -1,0 +1,79 @@
+.authors {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+
+  .author__layout {
+    width: 100%;
+    max-width: 100%;
+    position: relative; // Для позиционирования псевдоэлементов
+
+    // Обертка для элементов с прокруткой
+    .scroll-container {
+      overflow-x: auto; // Включаем горизонтальную прокрутку
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+
+      // Затемнение по бокам
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        height: 100%;
+        width: 50px; // Ширина затемнения
+        pointer-events: none; // Чтобы не блокировать события мыши
+        z-index: 1; // Псевдоэлементы должны быть поверх контента
+      }
+
+      &::before {
+        left: 0;
+        background: linear-gradient(
+          to right,
+          rgba(255, 255, 255, 1),
+          rgba(255, 255, 255, 0)
+        ); // Цвет затемнения, замените на ваш цвет фона
+      }
+
+      &::after {
+        right: 0;
+        background: linear-gradient(
+          to left,
+          rgba(255, 255, 255, 1),
+          rgba(255, 255, 255, 0)
+        ); // Цвет затемнения
+      }
+
+      .items {
+        width: 1550px; // Ширина контейнера с элементами
+        display: flex;
+        flex-direction: row;
+        gap: 40px;
+
+        .item {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+
+          .name {
+            font-weight: bold;
+            font-size: 18px;
+          }
+
+          .slug {
+            font-size: 14px;
+            color: var(--subColor);
+          }
+
+          cursor: pointer;
+        }
+      }
+    }
+
+    .scroll-container::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}

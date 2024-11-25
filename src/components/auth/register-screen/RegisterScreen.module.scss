@@ -1,0 +1,25 @@
+.heading {
+  font-size: 32px;
+  font-weight: 600;
+	color: var(--mainColor);
+}
+
+.or {
+  text-align: center;
+  margin-top: 20px;
+  font-weight: 500;
+  font-size: 18px;
+	color: var(--mainColor);
+}
+
+.footer {
+  margin-top: 25px;
+  padding-top: 10px;
+  border-top: 2px solid var(--mainBorderColor);
+  text-align: center;
+  color: var(--subColor);
+  a {
+    color: var(--mainColor);
+    font-weight: bold;
+  }
+}

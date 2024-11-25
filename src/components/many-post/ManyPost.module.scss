@@ -1,0 +1,17 @@
+.many__post {
+	width: 100%;
+	h3 {
+		font-weight: bold;
+		font-size: clamp(32px, 2vw, 42px);
+	}
+	.items {
+		margin-top: clamp(20px, 2vw, 40px);
+		width: 100%;
+		display: grid;	
+		grid-template-columns: repeat(2, 1fr);
+		gap: 20px;
+		@media (max-width: 1200px) {
+			grid-template-columns: repeat(1, 1fr) !important;
+		}
+	}
+}

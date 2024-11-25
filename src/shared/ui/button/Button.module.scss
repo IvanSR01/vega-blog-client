@@ -1,0 +1,15 @@
+.button {
+	width: 100%;
+	height: 48px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #fff;
+	background-color: var(--accentColor);
+	border-radius: 10px;
+}
+.altStyle {
+	color: var(--accentColor);
+	background-color: var(--100AccentColor);
+	border: 2px solid var(--accentColor);
+}

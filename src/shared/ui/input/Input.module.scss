@@ -1,98 +1,113 @@
 .group {
-	width: 100%;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	position: relative;
-	.input {
-		width: 100%;
-		padding: 10px 25px 10px 15px;
-		font-size: 18px;
-		background-color: var(--inputBackgroundColor);
-		color: var(--mainColor);
-		outline: none;
-		border-radius: 10px;
-	}
-	.icon {
-		position: absolute;
-		right: 15px;
-		color: var(--subColor);
-	}
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+
+  .input {
+    width: 100%;
+    padding: 12px; // обновлено
+    font-size: 16px; // обновлено
+    background-color: var(--inputBackgroundColor);
+    color: var(--mainColor);
+    outline: none;
+    border: 2px solid var(--mainBorderColor); // обновлено
+    border-radius: 8px; // обновлено
+    transition: border-color 0.3s ease;
+  }
+
+  .icon {
+    position: absolute;
+    right: 15px;
+    color: var(--subColor);
+  }
 }
 
 .pending {
-	.input {
-		background-color: #dfdfdf;
-	}
+  .input {
+    background-color: #dfdfdf;
+  }
 }
-.error {
-	.input {
-		border-color: red;
-	}
-	.input::placeholder {
-		color: red;
-	}
 
-	.helperText {
-		color: red;
-	}
+.error {
+  .input {
+    border-color: red;
+  }
+
+  .input::placeholder {
+    color: red;
+  }
+
+  .helperText {
+    color: red;
+  }
 }
+
 .switch {
-	width: 100%;
-	display: flex;
-	justify-content: space-between;
-	.placholder {
-		color: var(--subColor);
-	}
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  .placholder {
+    color: var(--subColor);
+  }
 }
 
 .input-switch {
-	position: relative;
-	display: inline-block;
-	width: 50px;
-	height: 28px;
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 28px;
 
-	input {
-		opacity: 0;
-		width: 0;
-		height: 0;
-		border: none !important;
-	}
+  input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    border: none !important;
+  }
 
-	.slider {
-		position: absolute;
-		cursor: pointer;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		background-color: #ccc;
-		transition: 0.4s;
-		border-radius: 34px;
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 34px;
 
-		&:before {
-			position: absolute;
-			content: '';
-			height: 22px;
-			width: 22px;
-			left: 3px;
-			bottom: 3px;
-			background-color: white;
-			transition: 0.4s;
-			border-radius: 50%;
-		}
-	}
+    &:before {
+      position: absolute;
+      content: '';
+      height: 22px;
+      width: 22px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: 0.4s;
+      border-radius: 50%;
+    }
+  }
 
-	input:checked + .slider {
-		background-color: #000;
-	}
+  input:checked + .slider {
+    background-color: #000;
+  }
 
-	input:checked + .slider:before {
-		transform: translateX(22px);
-	}
+  input:checked + .slider:before {
+    transform: translateX(22px);
+  }
 
-	.disabled {
-		opacity: 0.6;
-		pointer-events: none;
-	}
+  .disabled {
+    opacity: 0.6;
+    pointer-events: none;
+  }
+}
+
+.reverse {
+  background-color: var(--mainBackgroundColor) !important;
+  color: var(--mainColor) !important;
+  border: 2px solid var(--mainBorderColor) !important;
+  border-radius: 10px !important;
 }

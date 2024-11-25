@@ -1,0 +1,23 @@
+.tools {
+  position: absolute;
+  right: -10px;
+  top: -10px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  .crudButton {
+    padding: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    background-color: var(--socialBackgroundColor);
+    color: #fff;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background-color 0.5s;
+  }
+  .crudButton:hover {
+    background-color: var(--accentColor);
+  }
+}

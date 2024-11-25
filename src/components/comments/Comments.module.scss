@@ -1,0 +1,112 @@
+.comments {
+  width: 100%;
+  padding: 20px;
+  background-color: var(--mainBackgroundColor);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px var(--mainShadowColor);
+  h2 {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+
+  .commentForm {
+		position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 20px;
+
+		.noAuth {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			background-color: #ffffffbb;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: 5px;
+			font-size: clamp(12px, 1vw, 16px);
+			a {
+				color: var(--accentColor);
+				cursor: pointer;
+				text-transform: uppercase;
+			}
+		}
+
+    textarea {
+      width: 100%;
+      height: 60px;
+      resize: none;
+      border: 1px solid var(--mainBorderColor);
+			background-color: var(--mainBackgroundColor);
+      border-radius: 4px;
+      padding: 10px;
+      font-size: 14px;
+      color: var(--mainColor);
+      &:focus {
+        border-color: var(--accentColor);
+        outline: none;
+      }
+    }
+
+    button {
+			height: 60px;
+      background-color: var(--accentColor);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+      &:hover {
+        background-color: var(--accentColor);
+      }
+    }
+  }
+
+  .commentList {
+    list-style: none;
+    padding: 0;
+
+    .comment {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--mainBorderColor);
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      .commentContent {
+        padding: 10px;
+        border-radius: 4px;
+        width: 100%;
+
+        .commentHeader {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 5px;
+
+          .author {
+            font-weight: bold;
+            color: var(--accentColor);
+          }
+
+          .timestamp {
+            font-size: 12px;
+            color: #999;
+          }
+        }
+
+        p {
+          margin: 0;
+          font-size: 14px;
+          color: var(--mainColor);
+        }
+      }
+    }
+  }
+}
