@@ -3,10 +3,10 @@ export const sortOptions: SortOption[] = [
   { label: "Title (Z-A)", value: "title_DESC" },
   { label: "Content (ascending)", value: "content_ASC" },
   { label: "Content (descending)", value: "content_DESC" },
-  { label: "Date (newest first)", value: "date_DESC" },
-  { label: "Date (oldest first)", value: "date_ASC" },
-  { label: "Views (ascending)", value: "views_ASC" },
-  { label: "Views (descending)", value: "views_DESC" },
+  { label: "Date (newest first)", value: "createdAt_DESC" },
+  { label: "Date (oldest first)", value: "createdAt_ASC" },
+  { label: "Views (ascending)", value: "viewCount_ASC" },
+  { label: "Views (descending)", value: "viewCount_DESC" },
 ] as const
 
 export type SortOption = {

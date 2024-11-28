@@ -63,7 +63,14 @@
       }
     }
   }
-
+	.commentsListsEmpty {
+		width: 100%;
+		height: 100px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		color: var(--subColor);
+	}
   .commentList {
     list-style: none;
     padding: 0;

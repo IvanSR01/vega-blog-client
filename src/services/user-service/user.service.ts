@@ -1,4 +1,4 @@
-import { accessApi } from "@/$api/axios.api";
+import { accessApi, defaultApi } from "@/$api/axios.api";
 import { User } from "@/shared/interfaces/user.interface";
 
 class UserService {
@@ -12,11 +12,12 @@ class UserService {
   }
 
   async findOne(id: number): Promise<User> {
-    const { data } = await accessApi<User>({
+    const { data } = await defaultApi<User>({
       method: "GET",
       url: `/user/by-id/${id}`,
     });
-    return data;
+
+		return data;
   }
 
   async profile(): Promise<User> {

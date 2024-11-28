@@ -7,7 +7,7 @@ class PostService {
 		const { data } = await accessApi<Post[]>({
 			method: 'GET',
 			url: '/post/',
-			params: credential
+			params: { ...credential, limit: credential.limit ? +credential.limit : 5 }
 		})
 		return data
 	}
@@ -26,6 +26,14 @@ class PostService {
 			method: 'GET',
 			url: '/post/most-viewed',
 			params: { limit }
+		})
+		return data
+	}
+
+	async getPostsByAuthor(authorId: number): Promise<Post[]> {
+		const { data } = await accessApi<Post[]>({
+			method: 'GET',
+			url: `/post/by-author/${authorId}`
 		})
 		return data
 	}

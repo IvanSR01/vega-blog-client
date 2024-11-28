@@ -1,7 +1,7 @@
 import { FC } from "react";
 import styles from "./Authors.module.scss";
 import UserAvatar from "@/shared/ui/user-avatar/UserAvatar";
-import More from "../more/More";
+import More from "../../../components/more/More";
 
 const Authors: FC = () => {
   return (

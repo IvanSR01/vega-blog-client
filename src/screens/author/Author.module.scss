@@ -1,66 +1,7 @@
 .authorPage {
+	width: 100%;
   padding: 20px 0px;
   display: flex;
   flex-direction: column;
   gap: 20px;
-  .authorBanner {
-    width: 100%;
-    min-height: 350px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    padding: 20px;
-    gap: 25px;
-    background-color: var(--bannerbackgroundColor);
-    border-radius: 20px;
-    .heading {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      .details {
-        display: flex;
-        flex-direction: column;
-        .name {
-          color: var(--mainColor);
-          font-weight: 500;
-          font-size: clamp(18px, 2vw, 22px);
-          margin: 0;
-        }
-        .slug {
-          color: var(--subColor);
-          font-weight: 500;
-          font-size: clamp(14px, 0.9vw, 16px);
-        }
-      }
-    }
-    .description {
-      color: var(--bannerTextColor);
-      text-align: center;
-      font-size: clamp(14px, 1vw, 18px);
-			font-weight: 500;
-			max-width: 640px;
-    }
-		.social {
-			display: flex;
-			gap: 8px;
-			align-items: center;
-			.item {
-				height: 42px;
-				width: 42px;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				border-radius: 8px;
-				background-color: var(--socialBackgroundColor);
-				color: #fff;
-				cursor: pointer;	
-				font-size: 18px;
-				transition: background-color 0.5s;
-			}
-			.item:hover {
-				background-color: var(--accentColor);
-			}
-		}
-  }
 }

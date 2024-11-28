@@ -1,43 +1,60 @@
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useMemo, useState, useCallback } from "react";
-import debounce from "lodash.debounce";
+import { usePathname, useRouter, useSearchParams } from 'next/navigation'
+import { useMemo, useState, useCallback } from 'react'
+import debounce from 'lodash.debounce'
 
-export const useSearchQuery = (queryParam: string, timeout: number = 250) => {
-  const searchParams = useSearchParams();
-  const currentPathname = usePathname();
-  const router = useRouter();
-  const [searchTerm, setSearchTerm] = useState<string>(
-    searchParams.get(queryParam) ?? ""
-  );
+interface Props {
+	queryParam: string
+	timeout?: number
+	disabledScroll?: boolean
+}
 
-  const debouncedSearch = useCallback(
-    debounce((queryParam: string, term: string) => {
-      const params = new URLSearchParams(searchParams.toString());
+interface Return {
+	searchTerm: string
+	handleChangeSearchTerm: (term: string) => void
+}
 
-      if (term) {
-        params.set(queryParam, term);
-      } else {
-        params.delete(queryParam);
-      }
+export const useSearchQuery = ({
+	queryParam,
+	timeout = 500,
+	disabledScroll
+}: Props): Return => {
+	const searchParams = useSearchParams()
+	const currentPathname = usePathname()
+	const router = useRouter()
+	const [searchTerm, setSearchTerm] = useState<string>(
+		searchParams.get(queryParam) ?? ''
+	)
 
-      router.replace(`${currentPathname}?${params.toString()}`);
-    }, timeout),
-    [searchParams, currentPathname, router]
-  );
+	const debouncedSearch = useCallback(
+		debounce((queryParam: string, term: string) => {
+			const params = new URLSearchParams(searchParams.toString())
 
-  const handleChangeSearchTerm = useCallback(
-    (term: string) => {
-      setSearchTerm(term);
-      debouncedSearch(queryParam, term);
-    },
-    [debouncedSearch, queryParam]
-  );
+			if (term) {
+				params.set(queryParam, term)
+			} else {
+				params.delete(queryParam)
+			}
 
-  return useMemo(
-    () => ({
-      searchTerm,
-      handleChangeSearchTerm,
-    }),
-    [searchTerm, handleChangeSearchTerm]
-  );
-};
+			router.replace(`${currentPathname}?${params.toString()}`, {
+				scroll: !disabledScroll
+			})
+		}, timeout),
+		[searchParams, currentPathname, router]
+	)
+
+	const handleChangeSearchTerm = useCallback(
+		(term: string) => {
+			setSearchTerm(term)
+			debouncedSearch(queryParam, term)
+		},
+		[debouncedSearch, queryParam]
+	)
+
+	return useMemo(
+		() => ({
+			searchTerm,
+			handleChangeSearchTerm
+		}),
+		[searchTerm, handleChangeSearchTerm]
+	)
+}

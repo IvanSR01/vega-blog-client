@@ -6,8 +6,11 @@ import clsx from 'clsx'
 import { FaStar, FaUserFriends, FaHeart, FaCommentDots } from 'react-icons/fa'
 import ScrollLayout from '@/components/scroll-layout/ScrollLayout'
 import ManyPost from '@/components/many-post/ManyPost'
-import { motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import { itemVariants } from '@/shared/motion/variants'
+import { useProfile } from '@/hooks/useProfile'
+import { useGetReactions } from './useGetReactions'
+
 const categories = [
 	{ name: 'Favorites', icon: <FaStar /> },
 	{ name: 'Following', icon: <FaUserFriends /> },
@@ -19,10 +22,11 @@ const UserPage: FC = () => {
 	const [selectCategory, setSelectCategory] = useState<string>(
 		categories[0].name
 	)
-
+	const { profile } = useProfile()
+	const { likePost, favoritePost } = useGetReactions()
 	return (
 		<div className={styles.userPage}>
-			<Banner />
+			<Banner profile={profile} />
 			<div className={styles.content}>
 				<ScrollLayout>
 					<div className={styles.categories}>
@@ -45,7 +49,14 @@ const UserPage: FC = () => {
 						))}
 					</div>
 				</ScrollLayout>
-				<ManyPost title={selectCategory} />
+				<AnimatePresence>
+					{selectCategory === 'Favorites' && (
+						<ManyPost title={selectCategory} posts={favoritePost || []} />
+					)}
+					{selectCategory === 'likes' && (
+						<ManyPost title={selectCategory} posts={likePost || []} />
+					)}
+				</AnimatePresence>
 			</div>
 		</div>
 	)

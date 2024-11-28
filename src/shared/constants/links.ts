@@ -5,11 +5,12 @@ export const LINKS = {
   TAGS: "/tags",
   ABOUT: "/contact/about",
   REQUEST: "/contact/request",
-  SINGLEPOST: "/single-post",
+  SINGLE_POST: "/single-post",
   POST: "/post",
 	PROFILE: '/profile/user',
-	AUTHORPROFILE: '/profile/author',
-	NEWPOST: '/profile/new-post',
-	AUTHSINGIN: '/auth/sing-in',
-	AUTHSINGUP: '/auth/sing-up',
+	AUTHOR_PROFILE: '/profile/author',
+	NEW_POST: '/profile/new-post',
+	AUTH_SINGIN: '/auth/sing-in',
+	AUTH_SINGUP: '/auth/sing-up',
+	AUTHOR_ID: '/author/'
 } as const;

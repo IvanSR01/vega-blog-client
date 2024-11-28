@@ -13,6 +13,7 @@ class FileService {
 				"Content-Type": "multipart/form-data", // Устанавливаем заголовок для загрузки файла
 			},
     });
+
     return data;
   }
 }

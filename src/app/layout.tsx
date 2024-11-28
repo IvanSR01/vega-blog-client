@@ -41,9 +41,10 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
-  viewport: "width=device-width, initial-scale=1.0",
+	manifest: '/manifest.json'
 };
 
+export const revalidate = 60;
 
 export default function RootLayout({
   children,
@@ -55,7 +56,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Suspense fallback={<FullScreenLoader />}>
+        <Suspense fallback={<FullScreenLoader />} >
           <AppProvider>{children}</AppProvider>
         </Suspense>
       </body>

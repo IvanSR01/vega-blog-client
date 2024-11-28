@@ -1,8 +1,13 @@
 .search {
 	display: flex;
+	flex-direction: column-reverse;
 	gap: 20px;
-	@media (max-width: 1200px) {
-		flex-direction: column;
-		gap: 0px;
+	.top {
+		display: flex;
+		gap: 20px;
+		@media (max-width: 1200px) {
+			flex-direction: column;
+			gap: 0px;
+		}
 	}
 }

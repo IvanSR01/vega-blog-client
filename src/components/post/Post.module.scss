@@ -10,6 +10,8 @@
 	flex-direction: row;
 	.postImage {
 		width: 40%;
+		min-height: 230px;
+		object-fit: cover;
 	}
 	.heading {
 		display: flex;
@@ -22,16 +24,33 @@
 			.crudButton {
 				padding: 7px;
 				border-radius: 5px;
+				background-color: transparent;
 				cursor: pointer;
+				transition: background-color 0.5s;
 			}
-			.crudButton:first-child:hover {
-				background-color: var(--200YellowColor);
+			.crudButton:first-child {
+				&:hover {
+					background-color: var(--200YellowColor);
+				}
+				&.active {
+					background-color: var(--200YellowColor);
+				}
 			}
-			.crudButton:nth-child(2):hover {
-				background-color: var(--200BlueColor);
+			.crudButton:nth-child(2) {
+				&:hover {
+					background-color: var(--200BlueColor);
+				}
+				&.active {
+					background-color: var(--200BlueColor);
+				}
 			}
-			.crudButton:nth-child(3):hover {
-				background-color: var(--200RedColor);
+			.crudButton:nth-child(3) {
+				&:hover {
+					background-color: var(--200RedColor);
+				}
+				&.active {
+					background-color: var(--200RedColor);
+				}
 			}
 		}
 	}
@@ -64,7 +83,6 @@
 			font-size: clamp(14px, 1vw, 18px);
 		}
 	}
-	
 }
 
 @media (min-width: 650px) and (max-width: 1200px) {
@@ -82,6 +100,7 @@
 		flex-direction: column;
 		.postImage {
 			width: 100%;
+			min-height: 200px;
 		}
 		.detalis {
 			width: 100%;

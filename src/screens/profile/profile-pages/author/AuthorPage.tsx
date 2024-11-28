@@ -5,12 +5,14 @@ import Banner from "@/components/banner/Banner";
 import ManyPost from "@/components/many-post/ManyPost";
 import ScrollLayout from "@/components/scroll-layout/ScrollLayout";
 import { useRouter } from "next/navigation";
+import { useProfile } from "@/hooks/useProfile";
 // todo: Fix link
 const AuthorPage: FC = () => {
 	const {push} = useRouter()
+	const { profile } = useProfile()
   return (
     <div className={styles.authorPage}>
-      <Banner />
+      <Banner profile={profile} />
       <div className={styles.content}>
         <ScrollLayout>
           <div className={styles.buttons}>

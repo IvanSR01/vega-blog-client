@@ -3,8 +3,6 @@ export interface CreatePostDto {
   content: string;
   cover: string;
   tag?: string;
-  likes?: number;
-  dislikes?: number;
 }
 
 export interface UpdatePostDto extends Partial<CreatePostDto> {
