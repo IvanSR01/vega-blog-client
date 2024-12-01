@@ -81,7 +81,7 @@ const SideBar: FC<PropsWithChildren<Props>> = ({
 											))}
 										</>
 									) : (
-										<>No data</>
+										<div className={styles.itemsEmpty}>No data</div>
 									)}
 								</div>
 							</>

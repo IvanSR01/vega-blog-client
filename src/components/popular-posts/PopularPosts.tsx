@@ -19,7 +19,7 @@ interface Props {
 }
 
 const PopularPosts: FC<Props> = ({ posts }) => {
-	console.log(posts)
+
 	return (
 		<motion.div
 			variants={variants}

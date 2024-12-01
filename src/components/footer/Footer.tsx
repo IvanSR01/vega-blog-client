@@ -63,7 +63,8 @@ const links = [
 	{ title: 'About', href: '/contact/about' },
 	{ title: 'Contact', href: '/contact/request' },
 	{ title: 'Blog', href: '/blog' },
-	{ title: 'Single Post', href: '/single-post' }
+	{ title: 'Single Post', href: '/single-post' },
+	{ title: 'Sing In', href: '/auth/sing-in' }
 ]
 
 const categorys = popularTags.slice(0, 5)

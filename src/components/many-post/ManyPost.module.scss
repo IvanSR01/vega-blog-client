@@ -23,6 +23,7 @@
 		align-items: center;
 		justify-content: center;
 		font-weight: 500;
+		color: var(--mainColor);
 		@media (max-width: 1200px) {
 			flex-direction: column;
 		}
