@@ -53,7 +53,7 @@ const UserPage: FC = () => {
 					{selectCategory === 'Favorites' && (
 						<ManyPost title={selectCategory} posts={favoritePost || []} />
 					)}
-					{selectCategory === 'likes' && (
+					{selectCategory === 'Likes' && (
 						<ManyPost title={selectCategory} posts={likePost || []} />
 					)}
 				</AnimatePresence>

@@ -1,7 +1,7 @@
-import { CSSProperties } from 'react'
+import { CSSProperties, ChangeEventHandler } from 'react'
 
-export type InputProps = {
-	onChange?: ((value: string) => void) | any
+export interface InputProps {
+	onChange?: ChangeEventHandler<HTMLInputElement>
 	value?: string | boolean
 	placeholder?: string
 	type?: string

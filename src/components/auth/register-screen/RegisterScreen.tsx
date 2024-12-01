@@ -9,7 +9,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { FC } from 'react'
 import { toast } from 'react-toastify'
-import Form from '../auth-components/form/Form'
+import Form from '../../../shared/ui/form/Form'
 import AuthLayoutPage from '../auth-layout-page/AuthLayoutPage'
 import styles from './RegisterScreen.module.scss'
 
@@ -28,7 +28,6 @@ const RegisterScreen: FC<Props> = ({ inputData }) => {
 		<AuthLayoutPage image='/auth/register.jpg' imageOrder='right'>
 			<h2 className={styles.heading}>Register</h2>
 			<Form
-				name='register'
 				inputData={inputData}
 				onSubmit={onSubmit}
 				isPending={isPending}

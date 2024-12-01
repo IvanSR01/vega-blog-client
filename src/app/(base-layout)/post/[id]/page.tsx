@@ -30,7 +30,7 @@ export const generateStaticParams = async () => {
 	}
 }
 
-const page = async ({ params }: { params: { id: number } }) => {
+const page = async ({ params }: { params: Promise<{ id: number }> }) => {
 	const { id } = await params
 
 	const [post, comments] = await fetchById(id)

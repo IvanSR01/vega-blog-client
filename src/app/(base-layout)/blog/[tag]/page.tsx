@@ -6,13 +6,12 @@ const page = async ({
 	searchParams,
 	params
 }: {
-	searchParams: Omit<FindPostDto, 'tag'>
-	params: { tag: string }
+	searchParams: Promise<Omit<FindPostDto, 'tag'>>
+	params: Promise<{ tag: string }>
 }) => {
-
 	const res = await fetchBlogData({
 		...(await searchParams),
-		tag: await params?.tag
+		tag: (await params)?.tag
 	})
 
 	return <Blog {...res} />

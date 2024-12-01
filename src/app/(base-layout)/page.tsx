@@ -2,13 +2,6 @@ import Home from '@/screens/home/Home'
 import postService from '@/services/post-service/post.service'
 import tagService from '@/services/tag-service/tag.service'
 
-const page = async () => {
-	const [mostViewedPosts, posts, tags] = await fetchData()
-	return <Home mostViewedPosts={mostViewedPosts} posts={posts} tags={tags} />
-}
-
-export default page
-
 const fetchData = async () => {
 	try {
 		const res = await Promise.all([
@@ -21,3 +14,11 @@ const fetchData = async () => {
 		return [[], [], []]
 	}
 }
+
+const page = async () => {
+	const [mostViewedPosts, posts, tags] = await fetchData()
+	return <Home mostViewedPosts={mostViewedPosts} posts={posts} tags={tags} />
+}
+
+export default page
+

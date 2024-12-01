@@ -3,18 +3,12 @@ import { FC } from 'react'
 import styles from './More.module.scss'
 import { motion } from 'framer-motion'
 import { itemVariants } from '@/shared/motion/variants'
-import { useSearchQuery } from '@/hooks/useSearchQuery'
-const More: FC = () => {
-	const { handleChangeSearchTerm, searchTerm } = useSearchQuery({
-		queryParam: 'limit',
-		disabledScroll: true
-	})
 
-	const onClick = () => {
-		if(searchTerm) handleChangeSearchTerm(`${+searchTerm + 5}`)
-		else handleChangeSearchTerm('15')
-	}
+interface Props {
+	onClick?: () => void
+}
 
+const More: FC<Props> = ({ onClick }) => {
 	return (
 		<motion.div
 			variants={itemVariants}
@@ -25,7 +19,7 @@ const More: FC = () => {
 			transition={{
 				duration: 0.5
 			}}
-			onClick={onClick}
+			onClick={() => (onClick ? onClick() : null)}
 			className={styles.more}
 		>
 			Load More

@@ -1,9 +1,8 @@
 import fileService from '@/services/file-service/file.service'
 import { FileResponse } from '@/shared/types/file.type'
-import { useMemo, useState } from 'react'
+import { useMemo } from 'react'
 
-export const useUpload = () => {
-	const [file, setFile] = useState<FileResponse | null>(null)
+export const useUpload = (setFile: (file: FileResponse | null) => void) => {
 	const upload = async (file: File) => {
 		const res = await fileService.uploadFile(file, 'image/post')
 		setFile(res)
@@ -13,10 +12,9 @@ export const useUpload = () => {
 
 	return useMemo(
 		() => ({
-			file,
 			upload,
 			clearFile
 		}),
-		[file, upload]
+		[upload]
 	)
 }

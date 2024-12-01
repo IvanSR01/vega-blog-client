@@ -5,7 +5,7 @@ import { FindPostDto } from '@/services/post-service/post.dto'
 const page = async ({
 	searchParams
 }: {
-	searchParams: Omit<FindPostDto, 'tag'>
+	searchParams: Promise<Omit<FindPostDto, 'tag'>>
 }) => {
 	const res = await fetchBlogData({
 		...(await searchParams)

@@ -3,6 +3,6 @@ import { Post } from './post.interface'
 export interface Tag {
 	id: number
 	name: string
-	viewCount: number
+	postCount: number
 	posts: Post[]
 }

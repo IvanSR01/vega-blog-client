@@ -45,6 +45,7 @@
 					font-weight: bold;
 					font-size: clamp(20px, 2vw, 24px);
 					margin-bottom: 30px;
+					color: var(--mainColor);
 					@media (max-width: 1200px) {
 						font-size: clamp(24px, 2vw, 34px);
 					}
@@ -54,6 +55,7 @@
 					flex-direction: column;
 					gap: 25px;
 					.item {
+						height: 100%;
 						display: flex;
 						gap: 10px;
 						.image {
@@ -67,10 +69,11 @@
 							}
 						}
 						.detalis {
-							height: 100%;
+							height: 80px;
 							overflow: hidden;
 							width: 80%;
 							display: flex;
+							justify-content: space-between;
 							flex-direction: column;
 							.title {
 								overflow: hidden;
@@ -83,6 +86,7 @@
 								font-size: clamp(14px, 1vw, 18px);
 								font-weight: bold;
 								margin: 0;
+								color: var(--mainColor);
 								@media (max-width: 1200px) {
 									font-size: clamp(12px, 2vw, 20px);
 								}
@@ -90,7 +94,7 @@
 							.date {
 								padding-top: 8px;
 								font-size: clamp(12px, 1vw, 16px);
-								color: #666;
+								color: var(--subColor);
 								@media (max-width: 1200px) {
 									font-size: clamp(14px, 2vw, 18px);
 								}

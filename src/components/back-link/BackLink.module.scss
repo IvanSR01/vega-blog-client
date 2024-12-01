@@ -1,0 +1,18 @@
+.back {
+	color: var(--mainColor);
+	font-weight: bold;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	font-size: 16px;
+	text-decoration: none;
+
+	&:hover {
+		color: var(--subColor);
+		text-decoration: underline;
+	}
+
+	svg {
+		font-size: 18px;
+	}
+}

@@ -1,36 +1,36 @@
 'use client'
+import BackLink from '@/components/back-link/BackLink'
 import tagService from '@/services/tag-service/tag.service'
 import { LINKS } from '@/shared/constants/links'
+import { reactSelectStyles } from '@/shared/constants/react-select.styles'
 import Button from '@/shared/ui/button/Button'
 import Input from '@/shared/ui/input/Input'
 import { addFullUrl } from '@/shared/utils/addFullUrl'
 import { useQuery } from '@tanstack/react-query'
 import Image from 'next/image'
-import Link from 'next/link'
-import { useRef } from 'react'
-import { BsArrowLeft } from 'react-icons/bs'
+import { FC, useRef } from 'react'
 import { FaTrash } from 'react-icons/fa'
 import ReactQuill from 'react-quill-new'
 import 'react-quill-new/dist/quill.snow.css'
 import Select from 'react-select'
-import styles from './NewPost.module.scss'
-import { useNewPost } from './useNewPost'
-import { reactSelectStyles } from '@/shared/constants/react-select.styles'
+import styles from './ManagePost.module.scss'
+import { useManagePost } from '../../hooks/useManagePost'
 
-const NewPost = () => {
+interface Props {
+	postId?: number
+}
+
+const ManagePost: FC<Props> = ({ postId }) => {
 	const inputRef = useRef<HTMLInputElement>(null)
 	const { data } = useQuery({
 		queryKey: ['tags'],
 		queryFn: () => tagService.getTags()
 	})
-	const { post, changeData, mutate, upload } = useNewPost()
+	const { post, changeData, mutate, upload } = useManagePost(postId)
 	return (
 		<div className={styles.container}>
 			<div className={styles.content}>
-				<Link href={LINKS.AUTHOR_PROFILE} className={styles.back}>
-					<BsArrowLeft />
-					<p>Back to Profile</p>
-				</Link>
+				<BackLink href={LINKS.AUTHOR_PROFILE}>Profile</BackLink>
 				<p>Title :</p>
 				<Input
 					placeholder='Write your title'
@@ -49,12 +49,15 @@ const NewPost = () => {
 					<div className={styles.image}>
 						<Image
 							src={addFullUrl(post.cover)}
-							loader={() => addFullUrl(post.cover)}
+							loader={() => addFullUrl(post?.cover || '')}
 							width={200}
 							height={200}
 							alt='ew'
 						/>
-						<div className={styles.clear} onClick={() => changeData('cover', '')}>
+						<div
+							className={styles.clear}
+							onClick={() => changeData('cover', '')}
+						>
 							<FaTrash />
 						</div>
 					</div>
@@ -88,4 +91,4 @@ const NewPost = () => {
 	)
 }
 
-export default NewPost
+export default ManagePost

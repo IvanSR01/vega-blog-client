@@ -11,7 +11,7 @@ const fetchData = async (id: number): Promise<[User | null, Post[]]> => {
 			await userService.findOne(id),
 			await postService.getPostsByAuthor(id)
 		])
-	} catch (e){
+	} catch (e) {
 		console.log(e)
 		return [null, []]
 	}
@@ -26,7 +26,7 @@ export const generateStaticParams = async () => {
 	}
 }
 
-const page = async ({ params }: { params: { id: number } }) => {
+const page = async ({ params }: { params: Promise<{ id: number }> }) => {
 	const { id } = await params
 	const [user, posts] = await fetchData(+id)
 

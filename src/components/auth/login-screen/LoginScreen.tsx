@@ -6,7 +6,7 @@ import { TypeLogin } from '@/shared/types/auth.type'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { toast } from 'react-toastify'
-import Form from '../auth-components/form/Form'
+import Form from '../../../shared/ui/form/Form'
 import styles from './LoginScreen.module.scss'
 import { Input } from '@/screens/auth/auth.data'
 import { FC } from 'react'
@@ -36,14 +36,13 @@ const LoginScreen: FC<Props> = ({ inputData }) => {
 			</Link>
 			<h2 className={styles.heading}>Login</h2>
 			<Form
-				name='login'
 				inputData={inputData}
 				onSubmit={onSubmit}
 				isPending={isPending}
 				button={'login'}
 			/>
 			<div className={styles.footer}>
-				Don’t have an account? <Link href={LINKS.AUTHSINGUP}>Create one</Link>
+				Don’t have an account? <Link href={LINKS.AUTH_SINGIN}>Create one</Link>
 			</div>
 		</AuthLayoutPage>
 	)

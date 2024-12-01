@@ -16,12 +16,16 @@ import { itemVariants } from '@/shared/motion/variants'
 import useBanner from './useBanner'
 import { User } from '@/shared/interfaces/user.interface'
 import parse from 'html-react-parser'
+import { LINKS } from '@/shared/constants/links'
+import { useFollow } from './useFollow'
+
 interface Props {
 	profile: User | undefined
 }
 
 const Banner: FC<Props> = ({ profile }) => {
 	const { isAuthorPage, isYourProfile } = useBanner(profile as User)
+	const { isFollow, toggleFollow } = useFollow(profile?.id as number)
 	const { push } = useRouter()
 	return (
 		<motion.div
@@ -36,7 +40,10 @@ const Banner: FC<Props> = ({ profile }) => {
 		>
 			<div className={styles.heading}>
 				<div className={styles.user}>
-					<UserAvatar alt='dasda' size='large' />
+					<UserAvatar
+						alt={profile?.firstName + ' ' + profile?.lastName}
+						size='large'
+					/>
 					<div className={styles.details}>
 						<h4 className={styles.name}>
 							{profile?.firstName} {profile?.middleName} {profile?.lastName}
@@ -47,7 +54,10 @@ const Banner: FC<Props> = ({ profile }) => {
 				<div className={styles.buttons}>
 					{isYourProfile ? (
 						<>
-							<button className={styles.bannerButton}>
+							<button
+								onClick={() => push(LINKS.UPDATE_PROFILE)}
+								className={styles.bannerButton}
+							>
 								<FaEdit />
 							</button>
 							<button className={styles.bannerButton}>
@@ -63,7 +73,12 @@ const Banner: FC<Props> = ({ profile }) => {
 							</button>
 						</>
 					) : (
-						<button className={styles.bannerButton}>Follow</button>
+						<button
+							onClick={() => toggleFollow()}
+							className={styles.bannerButton}
+						>
+							{isFollow ? 'Unfollow' : 'Follow'}
+						</button>
 					)}
 				</div>
 			</div>

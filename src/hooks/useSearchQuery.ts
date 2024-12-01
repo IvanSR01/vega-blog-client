@@ -1,6 +1,7 @@
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { useMemo, useState, useCallback } from 'react'
 import debounce from 'lodash.debounce'
+import { connectUrl } from '@/shared/utils/connectUrl'
 
 interface Props {
 	queryParam: string
@@ -35,7 +36,7 @@ export const useSearchQuery = ({
 				params.delete(queryParam)
 			}
 
-			router.replace(`${currentPathname}?${params.toString()}`, {
+			router.replace(connectUrl(currentPathname, '?', params?.toString()), {
 				scroll: !disabledScroll
 			})
 		}, timeout),

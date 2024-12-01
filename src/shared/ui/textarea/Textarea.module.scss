@@ -1,0 +1,53 @@
+.group {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+
+	.textarea {
+		width: 100%;
+		padding: 12px;
+		font-size: 16px;
+		background-color: var(--inputBackgroundColor);
+		color: var(--mainColor);
+		outline: none;
+		border: 2px solid var(--mainBorderColor);
+		border-radius: 8px;
+		resize: vertical; // позволяет изменять размер только по вертикали
+		transition: border-color 0.3s ease;
+
+		&:disabled {
+			background-color: #dfdfdf;
+		}
+
+		&::placeholder {
+			color: var(--subColor);
+		}
+	}
+
+	.helperText {
+		margin-top: 8px;
+		font-size: 14px;
+		color: var(--subColor);
+	}
+}
+
+.pending {
+	.textarea {
+		background-color: #dfdfdf;
+	}
+}
+
+.error {
+	.textarea {
+		border-color: red;
+	}
+
+	.textarea::placeholder {
+		color: red;
+	}
+
+	.helperText {
+		color: red;
+	}
+}

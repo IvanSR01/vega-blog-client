@@ -1,29 +1,41 @@
-'use client';
-import { FC } from "react";
-import styles from "./AuthorPage.module.scss";
-import Banner from "@/components/banner/Banner";
-import ManyPost from "@/components/many-post/ManyPost";
-import ScrollLayout from "@/components/scroll-layout/ScrollLayout";
-import { useRouter } from "next/navigation";
-import { useProfile } from "@/hooks/useProfile";
+'use client'
+import { FC } from 'react'
+import styles from './AuthorPage.module.scss'
+import Banner from '@/components/banner/Banner'
+import ManyPost from '@/components/many-post/ManyPost'
+import ScrollLayout from '@/components/scroll-layout/ScrollLayout'
+import { useRouter } from 'next/navigation'
+import { useProfile } from '@/hooks/useProfile'
+import { useAuthorPost } from './useAuthorPost'
+import Loader from '@/components/loader/Loader'
 // todo: Fix link
 const AuthorPage: FC = () => {
-	const {push} = useRouter()
+	const { push } = useRouter()
 	const { profile } = useProfile()
-  return (
-    <div className={styles.authorPage}>
-      <Banner profile={profile} />
-      <div className={styles.content}>
-        <ScrollLayout>
-          <div className={styles.buttons}>
-            <button className={styles.crudButton} onClick={() => push('/profile/new-post')}>Add post</button>
-            {/* <button className={styles.crudButton}>Edit post</button>
-            <button className={styles.crudButton}>Remove post</button> */}
-          </div>
-        </ScrollLayout>
-        <ManyPost title="You posts" />
-      </div>
-    </div>
-  );
-};
-export default AuthorPage;
+	const { data, isLoading } = useAuthorPost()
+	return (
+		<div className={styles.authorPage}>
+			<Banner profile={profile} />
+			<div className={styles.content}>
+				<ScrollLayout>
+					<div className={styles.buttons}>
+						<button
+							className={styles.crudButton}
+							onClick={() => push('/profile/new-post')}
+						>
+							Add post
+						</button>
+					</div>
+				</ScrollLayout>
+				{isLoading ? (
+					<div className={styles.containerLoader}>
+						<Loader/>
+					</div>
+				) : (
+					<ManyPost title='You posts' posts={data || []} />
+				)}
+			</div>
+		</div>
+	)
+}
+export default AuthorPage

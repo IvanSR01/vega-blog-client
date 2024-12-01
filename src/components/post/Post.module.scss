@@ -10,49 +10,15 @@
 	flex-direction: row;
 	.postImage {
 		width: 40%;
-		min-height: 230px;
+		height: 230px;
 		object-fit: cover;
+		border-radius: 5px;
 	}
 	.heading {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
 		width: 100%;
-		.buttons {
-			display: flex;
-			gap: 5px;
-			.crudButton {
-				padding: 7px;
-				border-radius: 5px;
-				background-color: transparent;
-				cursor: pointer;
-				transition: background-color 0.5s;
-			}
-			.crudButton:first-child {
-				&:hover {
-					background-color: var(--200YellowColor);
-				}
-				&.active {
-					background-color: var(--200YellowColor);
-				}
-			}
-			.crudButton:nth-child(2) {
-				&:hover {
-					background-color: var(--200BlueColor);
-				}
-				&.active {
-					background-color: var(--200BlueColor);
-				}
-			}
-			.crudButton:nth-child(3) {
-				&:hover {
-					background-color: var(--200RedColor);
-				}
-				&.active {
-					background-color: var(--200RedColor);
-				}
-			}
-		}
 	}
 	.detalis {
 		width: 60%;
@@ -100,7 +66,7 @@
 		flex-direction: column;
 		.postImage {
 			width: 100%;
-			min-height: 200px;
+			height: 200px;
 		}
 		.detalis {
 			width: 100%;

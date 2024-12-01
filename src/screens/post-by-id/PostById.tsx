@@ -12,6 +12,9 @@ import { Post } from '@/shared/interfaces/post.interface'
 import { addFullUrl } from '@/shared/utils/addFullUrl'
 import parse from 'html-react-parser'
 import { Comment } from '@/shared/interfaces/comment.interface'
+import { LINKS } from '@/shared/constants/links'
+import { connectUrl } from '@/shared/utils/connectUrl'
+import ActionPost from '@/components/action-post/ActionPost'
 
 interface Props {
 	post: Post | null
@@ -88,26 +91,32 @@ const PostById: FC<Props> = ({ post, comments }) => {
 			)}
 		>
 			<div className={styles.layout}>
-				<div className={styles.post__by__id} id='intro'>
+				<div className={styles.postById} id='intro'>
 					<div className={styles.path}>
-						<Link href={'/blog'} className={styles.item}>
+						<Link href={LINKS.BLOG} className={styles.item}>
 							Blog
 						</Link>{' '}
-						<Link href={'/blog/technology'} className={styles.item}>
+						<Link
+							href={connectUrl(LINKS.BLOG, '/', post?.tag?.name || '')}
+							className={styles.item}
+						>
 							{post?.tag?.name}
 						</Link>
 						<div className={styles.item}>{post?.title}</div>
 					</div>
-					<Tag> {post?.tag?.name}</Tag>
+					<div className={styles.heading}>
+						<Tag> {post?.tag?.name}</Tag>
+						<ActionPost post={post as Post}/>
+					</div>
 					<h1 className={styles.title}>{post?.title}</h1>
 					<div className={styles.detalis}>
 						<div className={styles.flex}>
-							<MiniAuthor author={post?.author}/>
+							<MiniAuthor author={post?.author} />
 							<p className={styles.date}>August 20, 2022</p>
 						</div>
 						<div className={styles.views}>
 							<GrView />
-							<p>20</p>
+							<p>{post?.viewCount}</p>
 						</div>
 					</div>
 
@@ -122,7 +131,7 @@ const PostById: FC<Props> = ({ post, comments }) => {
 						{parse(post?.content || '')}
 					</div>
 				</div>
-				<Comments postId={post?.id || 0} comments={comments}/>
+				<Comments postId={post?.id || 0} comments={comments} />
 			</div>
 		</SideBar>
 	)

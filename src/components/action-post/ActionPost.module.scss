@@ -1,0 +1,35 @@
+.buttons {
+	display: flex;
+	gap: 5px;
+	.crudButton {
+		padding: 7px;
+		border-radius: 5px;
+		background-color: transparent;
+		cursor: pointer;
+		transition: background-color 0.5s;
+	}
+	.crudButton:first-child {
+		&:hover {
+			background-color: var(--200YellowColor);
+		}
+		&.active {
+			background-color: var(--200YellowColor);
+		}
+	}
+	.crudButton:nth-child(2) {
+		&:hover {
+			background-color: var(--200BlueColor);
+		}
+		&.active {
+			background-color: var(--200BlueColor);
+		}
+	}
+	.crudButton:nth-child(3) {
+		&:hover {
+			background-color: var(--200RedColor);
+		}
+		&.active {
+			background-color: var(--200RedColor);
+		}
+	}
+}

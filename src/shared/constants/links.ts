@@ -8,6 +8,7 @@ export const LINKS = {
   SINGLE_POST: "/single-post",
   POST: "/post",
 	PROFILE: '/profile/user',
+	UPDATE_PROFILE: '/profile/update-profile',
 	AUTHOR_PROFILE: '/profile/author',
 	NEW_POST: '/profile/new-post',
 	AUTH_SINGIN: '/auth/sing-in',

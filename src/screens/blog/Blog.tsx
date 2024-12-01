@@ -1,13 +1,13 @@
 import ManyPost from '@/components/many-post/ManyPost'
 import SideBar from '@/components/side-bar/SideBar'
-import { FC, Suspense } from 'react'
-import styles from './Blog.module.scss'
-import Search from './search/Search'
 import { Post } from '@/shared/interfaces/post.interface'
 import { Tag } from '@/shared/interfaces/tag.interface'
 import dynamic from 'next/dynamic'
+import { FC, Suspense } from 'react'
+import styles from './Blog.module.scss'
+import Search from './search/Search'
 
-const More = dynamic(() => import("../../components/more/More"));
+const MorePost = dynamic(() => import('./MorePost'))
 
 interface Props {
 	tags: Tag[]
@@ -23,7 +23,7 @@ const Blog: FC<Props> = ({ tags, posts }) => {
 			<SideBar>
 				<ManyPost title='Blog' baseGridColumn='repeat(1, 1fr)' posts={posts} />
 			</SideBar>
-			<More/>
+			<MorePost />
 		</div>
 	)
 }

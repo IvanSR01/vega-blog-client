@@ -1,58 +1,59 @@
 .footer {
-  width: 100%;
-  background-color: var(--subBackgroundColor);
-  padding: 40px 0;
-  display: flex;
-  justify-content: center;
+	width: 100%;
+	background-color: var(--subBackgroundColor);
+	padding: 40px 0;
+	display: flex;
+	justify-content: center;
 
-  .wrapper {
-    width: 90%;
-    max-width: 1450px;
-  }
+	.wrapper {
+		width: 90%;
+		max-width: 1450px;
+	}
 
-  .top {
-    padding: 25px 0px;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 20px;
-    h4 {
-      font-size: 1.25rem;
-      margin-bottom: 15px;
-      font-weight: bold;
-    }
+	.top {
+		padding: 25px 0px;
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		gap: 20px;
+		h4 {
+			font-size: 1.25rem;
+			margin-bottom: 15px;
+			font-weight: bold;
+			color: var(--mainColor);
+		}
 
-    p {
-      font-size: 1rem;
-      line-height: 1.5;
-      margin-bottom: 15px;
-      color: var(--subColor);
-    }
-    .about {
-      width: 25%;
-      min-width: 250px;
-      div {
-        font-size: 0.9rem;
-        margin-top: 5px;
-        color: var(--mainColor);
-      }
-    }
-
-    .item {
-      color: var(--mainColor);
-      width: 10%;
-			min-width: 120px;
-      div {
-        font-size: 0.9rem;
-        margin-top: 5px;
-        color: var(--mainColor);
-      }
-    }
-    .feedback {
+		p {
+			font-size: 1rem;
+			line-height: 1.5;
+			margin-bottom: 15px;
+			color: var(--subColor);
+		}
+		.about {
 			width: 25%;
-      background-color: var(--mainBackgroundColor);
-      padding: 32px;
+			min-width: 250px;
+			div {
+				font-size: 0.9rem;
+				margin-top: 5px;
+				color: var(--mainColor);
+			}
+		}
+
+		.item {
+			color: var(--mainColor);
+			width: 10%;
+			min-width: 120px;
+			div {
+				font-size: 0.9rem;
+				margin-top: 5px;
+				color: var(--mainColor);
+			}
+		}
+		.feedback {
+			width: 25%;
+			background-color: var(--mainBackgroundColor);
+			padding: 32px;
 			border-radius: 10px;
 			display: flex;
 			flex-direction: column;
@@ -65,19 +66,19 @@
 				margin: 0 !important;
 				padding: 0 !important;
 			}
-    }
-  }
+		}
+	}
 }
 
 @media (max-width: 600px) {
-  .footer {
-    .top {
-      .about {
-        width: 100%;
-      }
-      .item {
-        width: 100%;
-      }
-    }
-  }
+	.footer {
+		.top {
+			.about {
+				width: 100%;
+			}
+			.item {
+				width: 100%;
+			}
+		}
+	}
 }

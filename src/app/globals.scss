@@ -3,65 +3,66 @@
 @tailwind utilities;
 
 body {
-  --mainColor: #000;
-  --200MainColor: #00000017;
-  --mainBackgroundColor: #fff;
-  --mainBorderColor: #ededed;
-  --subColor: #717171;
-  --subBackgroundColor: #f6f6f7;
-  --inputBackgroundColor: #fff;
-  --accentColor: #4b6bfb;
-  --100AccentColor: #ced5f545;
+	--mainColor: #000;
+	--200MainColor: #00000017;
+	--mainBackgroundColor: #fff;
+	--mainBorderColor: #ededed;
+	--subColor: #717171;
+	--subBackgroundColor: #f6f6f7;
+	--inputBackgroundColor: #fff;
+	--accentColor: #4b6bfb;
+	--100AccentColor: #ced5f545;
 	--400AccentColor: #8ba0fe;
-  --userAvatar: #888888;
-  --200YellowColor: #ffcc0051;
-  --200RedColor: #ff00005d;
-  --200BlueColor: #4b6bfb42;
-  --mainShadowColor: rgba(0, 0, 0, 0.1);
+	--userAvatar: #888888;
+	--200YellowColor: #ffe06651; /* Светло-желтый с прозрачностью */
+	--200RedColor: #ff4d4d5d; /* Светло-красный с прозрачностью */
+	--200BlueColor: #5a9dfb42; /* Светло-синий с прозрачностью */
+
+	--mainShadowColor: rgba(0, 0, 0, 0.1);
 }
-body[data-theme="dark"] {
-  --mainColor: #ffffff; /* Основной текст - белый для темного фона */
-  --200MainColor: #ffffff29;
-  --mainBackgroundColor: #121212; /* Основной фон - почти черный */
-  --mainBorderColor: #444444; /* Бордер - темно-серый для разделения */
-  --subColor: #b0b0b0; /* Дополнительный текст - светло-серый */
-  --subBackgroundColor: #1e1e1e; /* Фон второстепенных элементов */
-  --inputBackgroundColor: #333333; /* Фон инпутов - темный серый */
-  --accentColor: #4b6bfb; /* Акцент остается синим */
-  --100AccentColor: #3b4b9b50; /* Мягкий акцент с прозрачностью для выделения */
-  --userAvatar: #bbbbbb; /* Цвет для аватара - светло-серый */
-	--mainShadowColor: rgba(0, 0, 0, 0.778);
+body[data-theme='dark'] {
+	--mainColor: #ffffff; /* Основной текст - белый для темного фона */
+	--200MainColor: #ffffff29;
+	--mainBackgroundColor: #121212; /* Основной фон - почти черный */
+	--mainBorderColor: #303030; /* Бордер - темно-серый для разделения */
+	--subColor: #b0b0b0; /* Дополнительный текст - светло-серый */
+	--subBackgroundColor: #1e1e1e; /* Фон второстепенных элементов */
+	--inputBackgroundColor: #333333; /* Фон инпутов - темный серый */
+	--accentColor: #4b6bfb; /* Акцент остается синим */
+	--100AccentColor: #3b4b9b50; /* Мягкий акцент с прозрачностью для выделения */
+	--userAvatar: #bbbbbb; /* Цвет для аватара - светло-серый */
+	--mainShadowColor: rgba(1, 1, 1, 0.778);
 }
 
 body {
-  background-color: var(--mainBackgroundColor);
-  transition: background-color 0.3s ease;
+	background-color: var(--mainBackgroundColor);
+	transition: background-color 0.3s ease;
 }
 
 body {
-  --socialColor: #fff;
-  --socialBackgroundColor: #696a75;
-  --bannerbackgroundColor: #f6f6f7;
-  --bannerTextColor: #3b3c4a;
+	--socialColor: #fff;
+	--socialBackgroundColor: #696a75;
+	--bannerbackgroundColor: #f6f6f7;
+	--bannerTextColor: #3b3c4a;
 }
-body[data-theme="dark"] {
-  --socialColor: var(--mainColor);
-  --socialBackgroundColor: #696a75;
-  --bannerbackgroundColor: var(--subBackgroundColor);
-  --bannerTextColor: #bababf;
+body[data-theme='dark'] {
+	--socialColor: var(--mainColor);
+	--socialBackgroundColor: #696a75;
+	--bannerbackgroundColor: var(--subBackgroundColor);
+	--bannerTextColor: #bababf;
 }
 body::selection {
-  background: var(--100AccentColor);
+	background: var(--100AccentColor);
 }
 
 body::-moz-selection {
-  background: var(--100AccentColor);
+	background: var(--100AccentColor);
 }
 
 .ql-container {
-  border-radius: 5px !important;
-  border: 1px solid #ccc !important;
-  min-height: 40dvh;
+	border-radius: 5px !important;
+	border: 1px solid #ccc !important;
+	min-height: 40dvh;
 }
 
 .swiper-pagination {

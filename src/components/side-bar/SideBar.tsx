@@ -75,7 +75,7 @@ const SideBar: FC<PropsWithChildren<Props>> = ({
 												<div className={styles.category} key={index}>
 													<div className={styles.text}>{item.name}</div>
 													<div className={styles.countPost}>
-														{item.viewCount}
+														{item.postCount}
 													</div>
 												</div>
 											))}
@@ -93,5 +93,3 @@ const SideBar: FC<PropsWithChildren<Props>> = ({
 	)
 }
 export default SideBar
-
-
