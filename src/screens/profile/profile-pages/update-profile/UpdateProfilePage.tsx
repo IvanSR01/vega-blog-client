@@ -83,7 +83,7 @@ const UpdateProfilePage: FC = () => {
 				<Form
 					inputData={inputDataUpdateProfile}
 					isPending={false}
-					onSubmit={(d: User) => mutate(d)}
+					onSubmit={(d: User) => mutate({ ...d, social })}
 					button={'Update'}
 					defaultValues={profile}
 				/>

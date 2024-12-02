@@ -33,19 +33,18 @@ const Header: FC = () => {
 				initial={{ opacity: 0, scale: 0.8 }}
 				animate={{ opacity: 1, scale: 1 }}
 				transition={{ duration: 0.5, ease: 'easeOut' }}
+				onClick={() => router.push('/')}
 			>
 				<motion.div
 					initial={{ opacity: 0, x: -20 }}
 					animate={{ opacity: 1, x: 0 }}
 					transition={{ delay: 0.3, duration: 0.5 }}
 				>
-					<Image
-						className={styles.icon}
-						src='/light.png'
-						width={50}
-						height={50}
-						alt='VegaBlog Logo'
-					/>
+					{isDarkMode ? (
+						<Image src='/dark.png' width={40} height={40} alt='' />
+					) : (
+						<Image src='/light.png' width={40} height={40} alt='' />
+					)}
 				</motion.div>
 				<motion.div
 					className={styles.text}

@@ -17,7 +17,7 @@ export const useUpdateProfile = () => {
 
 	const { upload } = useUpload(updateAvatar)
 	const { mutate } = useMutation({
-		mutationFn: (p: User) => userService.updateProfile(p),
+		mutationFn: (p: User) => userService.updateProfile({ ...p, avatar: image }),
 		onError: err => toast.error(useError(err)),
 		onSuccess: () => {
 			toast.success('Profile updated successfully')
