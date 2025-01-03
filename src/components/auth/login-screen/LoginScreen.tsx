@@ -23,9 +23,8 @@ const LoginScreen: FC<Props> = ({ inputData }) => {
 	const { onSubmit, isPending } = useAuth<TypeLogin, AuthResponse>({
 		api: AuthApi.LOGIN,
 		onError: err => toast.error(useError(err)),
-		onSuccess: data => {
-			if (data.isVerified) push('/dashboard/chats')
-			else push('/auth/email')
+		onSuccess: () => {
+			push(LINKS.HOME)
 		}
 	})
 	return (
@@ -42,7 +41,7 @@ const LoginScreen: FC<Props> = ({ inputData }) => {
 				button={'login'}
 			/>
 			<div className={styles.footer}>
-				Don’t have an account? <Link href={LINKS.AUTH_SINGIN}>Create one</Link>
+				Don’t have an account? <Link href={LINKS.AUTH_SING_UP}>Create one</Link>
 			</div>
 		</AuthLayoutPage>
 	)

@@ -1,5 +1,6 @@
 export interface MailDto {
 	to: string
+	name: string
 	subject: string
-	text: string
+	message: string
 }

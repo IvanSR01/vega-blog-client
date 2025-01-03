@@ -1,12 +1,18 @@
-import { FC } from 'react'
-import styles from './Contact.module.scss'
+'use client'
+
 import SideBar from '@/components/side-bar/SideBar'
 import Button from '@/shared/ui/button/Button'
-import ContactTabs from '../tabs/ContactTabs'
 import Input from '@/shared/ui/input/Input'
 import Textarea from '@/shared/ui/textarea/Textarea'
+import Link from 'next/link'
+import { FC } from 'react'
+
+import ContactTabs from '../tabs/ContactTabs'
+import styles from './Contact.module.scss'
+import { useSendMail } from './useSendMail'
 
 const Contact: FC = () => {
+	const { register, onSubmit, errors } = useSendMail()
 	return (
 		<div className={styles.contact}>
 			<h2>Contact us</h2>
@@ -33,16 +39,47 @@ const Contact: FC = () => {
 						</div>
 					</div>
 					<div className={styles.contactForm}>
-						<form>
+						<form onSubmit={onSubmit}>
 							<div className={styles.formGroup}>
-								<Input type='text' placeholder='Your Name' />
-								<Input type='email' placeholder='Your email' />
+								<Input
+									{...register('name', {
+										required: 'Name is required'
+									})}
+									error={!!errors.name?.message}
+									helperText={errors.name?.message as string}
+									type='text'
+									placeholder='Your Name'
+								/>
+								<Input
+									{...register('to', {
+										required: 'Email is required'
+									})}
+									error={!!errors.to?.message}
+									helperText={errors.to?.message as string}
+									type='email'
+									placeholder='Your email'
+								/>
 							</div>
-							<Input type='text' placeholder='Subject' />
-							<Textarea placeholder='Write your message...' />
+							<Input
+								{...register('subject', {
+									required: 'Subject is required'
+								})}
+								error={!!errors.subject?.message}
+								helperText={errors.subject?.message as string}
+								type='text'
+								placeholder='Subject'
+							/>
+							<Textarea
+								{...register('message', {
+									required: 'Message is required'
+								})}
+								error={!!errors.message?.message}
+								helperText={errors.message?.message as string}
+								placeholder='Write your message...'
+							/>
 							<p className={styles.privacyText}>
 								We care about your data in our{' '}
-								<a href='/privacy-policy'>Privacy Policy</a>
+								<Link href='/privacy-policy'>Privacy Policy</Link>
 							</p>
 							<Button>Send message</Button>
 						</form>

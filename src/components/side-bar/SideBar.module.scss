@@ -6,10 +6,7 @@
 	gap: 20px;
 
 	.sideBar {
-		position: sticky;
-		top: 20px;
 		height: 100%;
-		max-height: 100vh;
 		overflow-y: scroll;
 		scrollbar-width: none;
 		min-width: 470px;
@@ -40,13 +37,13 @@
 				width: 100%;
 				padding: 20px 32px;
 				border-radius: 10px;
-				border: 1px solid var(--mainBorderColor);
+				border: 1px solid var(--border-main-color);
 				margin-bottom: 15px;
 				.title {
 					font-weight: bold;
 					font-size: clamp(20px, 2vw, 24px);
 					margin-bottom: 30px;
-					color: var(--mainColor);
+					color: var(--text-main-color);
 					@media (max-width: 1200px) {
 						font-size: clamp(24px, 2vw, 34px);
 					}
@@ -87,7 +84,7 @@
 								font-size: clamp(14px, 1vw, 18px);
 								font-weight: bold;
 								margin: 0;
-								color: var(--mainColor);
+								color: var(--text-main-color);
 								@media (max-width: 1200px) {
 									font-size: clamp(12px, 2vw, 20px);
 								}
@@ -95,7 +92,7 @@
 							.date {
 								padding-top: 8px;
 								font-size: clamp(12px, 1vw, 16px);
-								color: var(--subColor);
+								color: var(--text-sub-color);
 								@media (max-width: 1200px) {
 									font-size: clamp(14px, 2vw, 18px);
 								}
@@ -108,16 +105,16 @@
 						align-items: center;
 						justify-content: space-between;
 						padding: 12px 0px;
-						border-bottom: 2px solid var(--mainBorderColor);
+						border-bottom: 2px solid var(--border-main-color);
 						cursor: pointer;
 						.text {
-							color: var(--subColor);
+							color: var(--text-sub-color);
 							font-size: 18px;
 							font-weight: 500;
 						}
 						.countPost {
-							color: var(--accentColor);
-							background-color: var(--100AccentColor);
+							color: var(--accent-main-color);
+							background-color: var(--accent-light-color);
 							border-radius: 5px;
 							height: 28px;
 							width: 38px;
@@ -147,5 +144,5 @@
 }
 
 .itemsEmpty {
-	color: var(--mainColor);
+	color: var(--text-main-color);
 }

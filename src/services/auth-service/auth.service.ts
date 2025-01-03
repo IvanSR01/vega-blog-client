@@ -12,6 +12,7 @@ class AuthService {
 				refreshToken: data.refreshToken
 			})
 	}
+
 	async login(credential: TypeLogin) {
 		const { data } = await defaultApi<AuthResponse>({
 			method: 'POST',

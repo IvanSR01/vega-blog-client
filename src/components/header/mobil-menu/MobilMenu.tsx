@@ -1,27 +1,22 @@
-import { FC, useState, useEffect, useRef } from 'react'
-import styles from './MobilMenu.module.scss'
-import { RxHamburgerMenu } from 'react-icons/rx'
-import { CgClose } from 'react-icons/cg'
-import { AnimatePresence, motion } from 'framer-motion'
-import { navData } from '../nav.data'
-import Link from 'next/link'
-import { FaSearch } from 'react-icons/fa'
 import Input from '@/shared/ui/input/Input'
-import { useProfile } from '@/hooks/useProfile'
+import { AnimatePresence, motion } from 'framer-motion'
+import Link from 'next/link'
+import { FC, useEffect, useRef, useState } from 'react'
+import { CgClose } from 'react-icons/cg'
+import { FaSearch } from 'react-icons/fa'
+import { RxHamburgerMenu } from 'react-icons/rx'
+
+import { useNavigateData } from '../useNavigateData'
 import useTheme from '../useTheme'
+import styles from './MobilMenu.module.scss'
+import clsx from 'clsx'
 
 const MobilMenu: FC = () => {
 	const [isOpen, setIsOpen] = useState<boolean>(false)
 	const menuRef = useRef<HTMLDivElement>(null)
 	const { checked: isDarkMode, toggleTheme } = useTheme()
-	const { profile } = useProfile()
 
-	const navigationData = [
-		...navData,
-		profile
-			? { path: '/profile/user', name: 'Profile' }
-			: { path: '/auth/sing-in', name: 'Sing In' }
-	]
+	const navigationData = useNavigateData()
 
 	useEffect(() => {
 		const handlerClick = (e: any) => {
@@ -80,7 +75,7 @@ const MobilMenu: FC = () => {
 										maxWidth: '50px'
 									}}
 								/>
-								<p className='font-bold'>Dark Mode</p>
+								<p className={clsx(styles.mode, 'font-bold')}>Dark Mode</p>
 							</div>
 						</motion.div>
 					</motion.div>

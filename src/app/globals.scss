@@ -3,61 +3,86 @@
 @tailwind utilities;
 
 body {
-	--mainColor: #000;
-	--200MainColor: #00000017;
-	--mainBackgroundColor: #fff;
-	--mainBorderColor: #ededed;
-	--subColor: #717171;
-	--subBackgroundColor: #f6f6f7;
-	--inputBackgroundColor: #fff;
-	--accentColor: #4b6bfb;
-	--100AccentColor: #ced5f545;
-	--400AccentColor: #8ba0fe;
-	--userAvatar: #888888;
-	--200YellowColor: #ffe06651; /* Светло-желтый с прозрачностью */
-	--200RedColor: #ff4d4d5d; /* Светло-красный с прозрачностью */
-	--200BlueColor: #5a9dfb42; /* Светло-синий с прозрачностью */
-
-	--mainShadowColor: rgba(0, 0, 0, 0.1);
+	--text-main-color: #000; /* Ранее: --mainColor */
+	--text-main-transparent-color: #00000017; /* Ранее: --200MainColor */
+	--bg-main-color: #fff; /* Ранее: --mainBackgroundColor */
+	--border-main-color: #ededed; /* Ранее: --mainBorderColor */
+	--text-sub-color: #717171; /* Ранее: --subColor */
+	--bg-sub-color: #f6f6f7; /* Ранее: --subBackgroundColor */
+	--bg-input-color: #fff; /* Ранее: --inputBackgroundColor */
+	--bg-input-pending-color: #dfdfdf;
+	--accent-main-color: #4b6bfb; /* Ранее: --accentColor */
+	--accent-light-color: #ced5f545; /* Ранее: --100AccentColor */
+	--accent-dark-color: #8ba0fe; /* Ранее: --400AccentColor */
+	--avatar-color: #888888; /* Ранее: --userAvatar */
+	--bg-yellow-transparent: #ffd5808a; /* Ранее: --200YellowColor */
+	--bg-red-transparent: #ff6b6b85; /* Ранее: --200RedColor */
+	--bg-blue-transparent: #7ab8ff70; /* Ранее: --200BlueColor */
+	--shadow-main-color: rgba(0, 0, 0, 0.1); /* Ранее: --mainShadowColor */
 }
+
 body[data-theme='dark'] {
-	--mainColor: #ffffff; /* Основной текст - белый для темного фона */
-	--200MainColor: #ffffff29;
-	--mainBackgroundColor: #121212; /* Основной фон - почти черный */
-	--mainBorderColor: #303030; /* Бордер - темно-серый для разделения */
-	--subColor: #b0b0b0; /* Дополнительный текст - светло-серый */
-	--subBackgroundColor: #1e1e1e; /* Фон второстепенных элементов */
-	--inputBackgroundColor: #333333; /* Фон инпутов - темный серый */
-	--accentColor: #4b6bfb; /* Акцент остается синим */
-	--100AccentColor: #3b4b9b50; /* Мягкий акцент с прозрачностью для выделения */
-	--userAvatar: #bbbbbb; /* Цвет для аватара - светло-серый */
-	--mainShadowColor: rgba(1, 1, 1, 0.778);
+	--text-main-color: #ffffff; /* Ранее: --mainColor */
+	--text-main-transparent-color: #ffffff29; /* Ранее: --200MainColor */
+	--bg-main-color: #121212; /* Ранее: --mainBackgroundColor */
+	--border-main-color: #303030; /* Ранее: --mainBorderColor */
+	--text-sub-color: #b0b0b0; /* Ранее: --subColor */
+	--bg-sub-color: #1e1e1e; /* Ранее: --subBackgroundColor */
+	--bg-input-color: #333333; /* Ранее: --inputBackgroundColor */
+	--accent-main-color: #4b6bfb; /* Ранее: --accentColor */
+	--accent-light-color: #3b4b9b50; /* Ранее: --100AccentColor */
+	--avatar-color: #bbbbbb; /* Ранее: --userAvatar */
+	--shadow-main-color: rgba(39, 39, 39, 0.778); /* Ранее: --mainShadowColor */
 }
 
 body {
-	background-color: var(--mainBackgroundColor);
+	--social-text-color: #fff; /* Ранее: --socialColor */
+	--social-bg-color: #696a75; /* Ранее: --socialBackgroundColor */
+	--banner-bg-color: #f6f6f7; /* Ранее: --bannerbackgroundColor */
+	--banner-text-color: #3b3c4a; /* Ранее: --bannerTextColor */
+}
+
+body[data-theme='dark'] {
+	--social-text-color: var(--text-main-color); /* Ранее: --socialColor */
+	--social-bg-color: #696a75; /* Ранее: --socialBackgroundColor */
+	--banner-bg-color: var(--bg-sub-color); /* Ранее: --bannerbackgroundColor */
+	--banner-text-color: #bababf; /* Ранее: --bannerTextColor */
+}
+
+body {
+	--success-color: #28a745; /* Ранее: --successColor */
+	--danger-color: #dc3545; /* Ранее: --dangerColor */
+}
+
+body {
+	background-color: var(--bg-main-color);
 	transition: background-color 0.3s ease;
 }
 
-body {
-	--socialColor: #fff;
-	--socialBackgroundColor: #696a75;
-	--bannerbackgroundColor: #f6f6f7;
-	--bannerTextColor: #3b3c4a;
-}
-body[data-theme='dark'] {
-	--socialColor: var(--mainColor);
-	--socialBackgroundColor: #696a75;
-	--bannerbackgroundColor: var(--subBackgroundColor);
-	--bannerTextColor: #bababf;
-}
 body::selection {
-	background: var(--100AccentColor);
+	background: #3b4b9b50;
 }
 
 body::-moz-selection {
-	background: var(--100AccentColor);
+	background: var(--accent-dark-color);
 }
+
+*::-webkit-scrollbar {
+	height: 2px;
+	width: 5px;
+}
+*::-webkit-scrollbar-track {
+	background-color: #f1f1f1;
+	border-radius: 10px;
+}
+*::-webkit-scrollbar-thumb {
+	background-color: var(--accent-main-color);
+	border-radius: 10px;
+}
+*::-webkit-scrollbar-thumb:hover {
+	background-color: #555;
+}
+
 
 .ql-container {
 	border-radius: 5px !important;

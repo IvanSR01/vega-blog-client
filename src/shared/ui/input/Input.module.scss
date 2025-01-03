@@ -1,113 +1,113 @@
 .group {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  position: relative;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	position: relative;
 
-  .input {
-    width: 100%;
-    padding: 12px; // обновлено
-    font-size: 16px; // обновлено
-    background-color: var(--inputBackgroundColor);
-    color: var(--mainColor);
-    outline: none;
-    border: 2px solid var(--mainBorderColor); // обновлено
-    border-radius: 8px; // обновлено
-    transition: border-color 0.3s ease;
-  }
+	.input {
+		width: 100%;
+		padding: 12px;
+		font-size: 16px;
+		background-color: var(--bg-input-color);
+		color: var(--text-main-color);
+		outline: none;
+		border: 2px solid var(--border-main-color);
+		border-radius: 8px;
+		transition: border-color 0.3s ease;
+	}
 
-  .icon {
-    position: absolute;
-    right: 15px;
-    color: var(--subColor);
-  }
+	.icon {
+		position: absolute;
+		right: 15px;
+		color: var(--text-sub-color);
+	}
 }
 
 .pending {
-  .input {
-    background-color: #dfdfdf;
-  }
+	.input {
+		background-color: var(--bg-input-pending-color);
+	}
 }
 
 .error {
-  .input {
-    border-color: red;
-  }
+	.input {
+		border-color: red;
+	}
 
-  .input::placeholder {
-    color: red;
-  }
+	.input::placeholder {
+		color: red;
+	}
 
-  .helperText {
-    color: red;
-  }
+	.helperText {
+		color: red;
+	}
 }
 
 .switch {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
 
-  .placholder {
-    color: var(--subColor);
-  }
+	.placholder {
+		color: var(--text-sub-color);
+	}
 }
 
 .input-switch {
-  position: relative;
-  display: inline-block;
-  width: 50px;
-  height: 28px;
+	position: relative;
+	display: inline-block;
+	width: 50px;
+	height: 28px;
 
-  input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-    border: none !important;
-  }
+	input {
+		opacity: 0;
+		width: 0;
+		height: 0;
+		border: none !important;
+	}
 
-  .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    transition: 0.4s;
-    border-radius: 34px;
+	.slider {
+		position: absolute;
+		cursor: pointer;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: var(--text-sub-color);
+		transition: 0.4s;
+		border-radius: 34px;
 
-    &:before {
-      position: absolute;
-      content: '';
-      height: 22px;
-      width: 22px;
-      left: 3px;
-      bottom: 3px;
-      background-color: white;
-      transition: 0.4s;
-      border-radius: 50%;
-    }
-  }
+		&:before {
+			position: absolute;
+			content: '';
+			height: 22px;
+			width: 22px;
+			left: 3px;
+			bottom: 3px;
+			background-color: white;
+			transition: 0.4s;
+			border-radius: 50%;
+		}
+	}
 
-  input:checked + .slider {
-    background-color: #000;
-  }
+	input:checked + .slider {
+		background-color: #000;
+	}
 
-  input:checked + .slider:before {
-    transform: translateX(22px);
-  }
+	input:checked + .slider:before {
+		transform: translateX(22px);
+	}
 
-  .disabled {
-    opacity: 0.6;
-    pointer-events: none;
-  }
+	.disabled {
+		opacity: 0.6;
+		pointer-events: none;
+	}
 }
 
 .reverse {
-  background-color: var(--mainBackgroundColor) !important;
-  color: var(--mainColor) !important;
-  border: 2px solid var(--mainBorderColor) !important;
-  border-radius: 10px !important;
+	background-color: var(--bg-main-color) !important;
+	color: var(--text-main-color) !important;
+	border: 2px solid var(--border-main-color) !important;
+	border-radius: 10px !important;
 }

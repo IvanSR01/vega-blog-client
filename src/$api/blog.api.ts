@@ -1,7 +1,6 @@
 import { FindPostDto } from '@/services/post-service/post.dto'
 import postService from '@/services/post-service/post.service'
-import tagService from '@/services/tag-service/tag.service'
-import { cleanTag } from '@/shared/utils/cleanTag'
+import { unParseTag } from '@/shared/utils/tag.utils'
 
 export const fetchBlogData = async ({
 	tag,
@@ -11,7 +10,7 @@ export const fetchBlogData = async ({
 }: FindPostDto) => {
 	try {
 		const requestData = {
-			tag: tag ? cleanTag(tag as string) : '',
+			tag: tag ? unParseTag(tag as string) : '',
 			search,
 			limit: limit ? +limit : 5,
 			...rest
@@ -20,10 +19,8 @@ export const fetchBlogData = async ({
 		const posts = tag
 			? await postService.getPostsByTag(requestData)
 			: await postService.getPosts(requestData)
-		const tags = await tagService.getTags(50)
 		return {
-			posts,
-			tags
+			posts
 		}
 	} catch (error) {
 		console.log(error)

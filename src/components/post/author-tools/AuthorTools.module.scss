@@ -11,13 +11,13 @@
     align-items: center;
     justify-content: center;
     border-radius: 8px;
-    background-color: var(--socialBackgroundColor);
+    background-color: var(--social-bg-color);
     color: #fff;
     cursor: pointer;
     font-size: 12px;
     transition: background-color 0.5s;
   }
   .crudButton:hover {
-    background-color: var(--accentColor);
+    background-color: var(--accent-main-color);
   }
 }

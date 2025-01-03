@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useProfile } from '@/hooks/useProfile'
 import userService from '@/services/user-service/user.service'
 import { useMutation } from '@tanstack/react-query'
@@ -27,11 +28,17 @@ export const useFollow = (authorId: number) => {
 		onError: () => toast.error('Something went wrong')
 	})
 
+	const toggleFollow = () => {
+		if (!profile)
+			return toast.error('You need to sign in to subscribe to an author')
+		mutate()
+	}
+
 	return useMemo(
 		() => ({
 			isFollow,
-			toggleFollow: () => mutate()
+			toggleFollow
 		}),
-		[isFollow, mutate]
+		[isFollow, toggleFollow]
 	)
 }

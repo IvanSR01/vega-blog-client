@@ -1,15 +1,14 @@
 'use client'
 import { FC, useState } from 'react'
 import styles from './UserPage.module.scss'
-import Banner from '../../../../components/banner/Banner'
 import clsx from 'clsx'
 import { FaStar, FaUserFriends, FaHeart, FaCommentDots } from 'react-icons/fa'
 import ScrollLayout from '@/components/scroll-layout/ScrollLayout'
 import ManyPost from '@/components/many-post/ManyPost'
 import { AnimatePresence, motion } from 'framer-motion'
 import { itemVariants } from '@/shared/motion/variants'
-import { useProfile } from '@/hooks/useProfile'
 import { useGetReactions } from './useGetReactions'
+import dynamic from 'next/dynamic'
 
 const categories = [
 	{ name: 'Favorites', icon: <FaStar /> },
@@ -18,15 +17,18 @@ const categories = [
 	{ name: 'Comments', icon: <FaCommentDots /> }
 ]
 
+const Banner = dynamic(() => import('../../../../components/banner/Banner'), {
+	ssr: false
+})
+
 const UserPage: FC = () => {
 	const [selectCategory, setSelectCategory] = useState<string>(
 		categories[0].name
 	)
-	const { profile } = useProfile()
 	const { likePost, favoritePost } = useGetReactions()
 	return (
 		<div className={styles.userPage}>
-			<Banner profile={profile} />
+			<Banner />
 			<div className={styles.content}>
 				<ScrollLayout>
 					<div className={styles.categories}>

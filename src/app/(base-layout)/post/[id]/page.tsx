@@ -30,6 +30,35 @@ export const generateStaticParams = async () => {
 	}
 }
 
+export const generateMetadata = async ({
+	params
+}: {
+	params: Promise<{ id: number }>
+}) => {
+	try {
+		const { id } = await params
+		const post = await postService.getPostById(id)
+
+		return {
+			title: post?.title || 'Not found',
+			description: post.content.slice(0, 100),
+			keywords: [
+				post?.tag?.name,
+				'Vega Blog',
+				'technology',
+				'programming',
+				'personal growth',
+				'articles',
+				'insights'
+			]
+		}
+	} catch (error) {
+		console.log(error)
+
+		return { title: 'Not found' }
+	}
+}
+
 const page = async ({ params }: { params: Promise<{ id: number }> }) => {
 	const { id } = await params
 

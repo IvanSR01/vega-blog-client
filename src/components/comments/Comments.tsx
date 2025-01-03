@@ -1,14 +1,17 @@
 /* eslint-disable react-hooks/rules-of-hooks */
+import { useError } from '@/hooks/useError'
 import { useProfile } from '@/hooks/useProfile'
+import commentService from '@/services/comment-service/comment.service'
+import { LINKS } from '@/shared/constants/links'
 import { Comment } from '@/shared/interfaces/comment.interface'
 import UserAvatar from '@/shared/ui/user-avatar/UserAvatar'
 import { formatDate } from '@/shared/utils/formatDate'
-import { FC, useState } from 'react'
-import styles from './Comments.module.scss'
 import { useMutation, useQuery } from '@tanstack/react-query'
-import commentService from '@/services/comment-service/comment.service'
+import Link from 'next/link'
+import { FC, useState } from 'react'
 import { toast } from 'react-toastify'
-import { useError } from '@/hooks/useError'
+
+import styles from './Comments.module.scss'
 
 interface Props {
 	comments: Comment[]
@@ -17,7 +20,7 @@ interface Props {
 
 const Comments: FC<Props> = ({ comments, postId }) => {
 	const { profile, globalReState } = useProfile()
-	const [newPostContent, setNewPostContent] = useState<string>('')
+	const [commentContent, setCommentContent] = useState<string>('')
 	const { data, refetch } = useQuery({
 		queryKey: ['comments'],
 		queryFn: () => commentService.getCommentsByPostId(postId),
@@ -25,33 +28,38 @@ const Comments: FC<Props> = ({ comments, postId }) => {
 	})
 	const { mutate } = useMutation({
 		mutationFn: () =>
-			commentService.createComment({ content: newPostContent, postId }),
+			commentService.createComment({ content: commentContent, postId }),
 		onError: err => toast.error(useError(err)),
 		onSuccess: () => {
-			setNewPostContent('')
+			setCommentContent('')
 			refetch()
 			globalReState()
 			toast.success('Comment created successfully')
 		}
 	})
+	const createComment = () => {
+		if (!commentContent) return toast.warning('Please write something first')
+		mutate()
+	}
 	return (
 		<div className={styles.comments} id='comments'>
 			<h2>Comments ({comments.length})</h2>
 			<div className={styles.commentForm}>
 				{!profile && (
 					<div className={styles.noAuth}>
-						Please <a href='sign in'>sign in</a> to leave a comment
+						Please <Link href={LINKS.AUTH_SING_IN}>sign in</Link> to leave a
+						comment
 					</div>
 				)}
 				<UserAvatar alt='Current User' size='medium' />
 				<textarea
 					placeholder='Add a comment...'
 					disabled={!profile}
-					value={newPostContent}
-					onChange={(e: any) => setNewPostContent(e.target?.value)}
+					value={commentContent}
+					onChange={(e: any) => setCommentContent(e.target?.value)}
 				/>
 				<button
-					onClick={() => mutate()}
+					onClick={() => createComment()}
 					className={styles.button}
 					disabled={!profile}
 				>
@@ -84,7 +92,9 @@ const Comments: FC<Props> = ({ comments, postId }) => {
 						))}
 					</>
 				) : (
-					<div className={styles.commentsListsEmpty}>Comments non</div>
+					<div className={styles.commentsListsEmpty}>
+						There are no comments yet.
+					</div>
 				)}
 			</ul>
 		</div>

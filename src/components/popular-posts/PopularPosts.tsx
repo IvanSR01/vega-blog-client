@@ -1,25 +1,24 @@
 'use client'
+
+import { Post } from '@/shared/interfaces/post.interface'
+import { variants } from '@/shared/motion/variants'
+import clsx from 'clsx'
+import { motion } from 'framer-motion'
 import { FC } from 'react'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { Navigation, Pagination } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
+import { Navigation, Pagination } from 'swiper/modules'
+import { Swiper, SwiperSlide } from 'swiper/react'
 
-import styles from './PopularPosts.module.scss'
 import PopularPost from '../popular-post/PopularPost'
-import clsx from 'clsx'
-
-import { motion } from 'framer-motion'
-import { variants } from '@/shared/motion/variants'
-import { Post } from '@/shared/interfaces/post.interface'
+import styles from './PopularPosts.module.scss'
 
 interface Props {
 	posts: Post[]
 }
 
 const PopularPosts: FC<Props> = ({ posts }) => {
-
 	return (
 		<motion.div
 			variants={variants}
@@ -34,13 +33,9 @@ const PopularPosts: FC<Props> = ({ posts }) => {
 		>
 			{posts && posts.length > 0 ? (
 				<>
-					{' '}
 					<div className={styles.items}>
 						{posts[0] && (
-							<PopularPost
-								post={posts[0]}
-								tag={posts[0].tag.name}
-							/>
+							<PopularPost post={posts[0]} tag={posts[0].tag.name} />
 						)}
 						{posts[1] && (
 							<div className={styles.col}>
@@ -55,7 +50,6 @@ const PopularPosts: FC<Props> = ({ posts }) => {
 							</div>
 						)}
 					</div>
-					{/* Swiper для экранов <= 800px */}
 					<div className={styles.slider}>
 						<Swiper
 							modules={[Navigation, Pagination]}
@@ -78,10 +72,7 @@ const PopularPosts: FC<Props> = ({ posts }) => {
 						>
 							{posts.map(post => (
 								<SwiperSlide key={post.id}>
-									<PopularPost
-										post={post}
-										tag={post.tag.name}
-									/>
+									<PopularPost post={post} tag={post.tag.name} />
 								</SwiperSlide>
 							))}
 						</Swiper>

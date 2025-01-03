@@ -1,15 +1,17 @@
 'use client'
+
+import BackLink from '@/components/back-link/BackLink'
+import { LINKS } from '@/shared/constants/links'
+import { User } from '@/shared/interfaces/user.interface'
 import Form from '@/shared/ui/form/Form'
+import Input from '@/shared/ui/input/Input'
 import UserAvatar from '@/shared/ui/user-avatar/UserAvatar'
 import { FC, useEffect, useRef, useState } from 'react'
 import { FaEdit } from 'react-icons/fa'
+
 import styles from './UpdateProfilePage.module.scss'
 import { inputDataUpdateProfile } from './form.data'
 import { useUpdateProfile } from './useUpdateProfile'
-import { User } from '@/shared/interfaces/user.interface'
-import BackLink from '@/components/back-link/BackLink'
-import { LINKS } from '@/shared/constants/links'
-import Input from '@/shared/ui/input/Input'
 
 interface Social {
 	facebook: string

@@ -1,5 +1,5 @@
 .back {
-	color: var(--mainColor);
+	color: var(--text-main-color);
 	font-weight: bold;
 	display: flex;
 	align-items: center;
@@ -8,7 +8,6 @@
 	text-decoration: none;
 
 	&:hover {
-		color: var(--subColor);
 		text-decoration: underline;
 	}
 

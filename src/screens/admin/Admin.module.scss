@@ -1,0 +1,73 @@
+.usersAdminPage {
+	width: 100%;
+	height: 100%;
+	.items {
+		width: 100%;
+		height: 100%;
+		overflow-y: scroll;
+		max-height: 70dvh;
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+		padding: 0px 10px;
+		.user {
+			width: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			border: 2px solid var(--border-main-color);
+			border-radius: 5px;
+			padding: 12px 15px;
+			transition-duration: 0.5s;
+			.info {
+				min-width: 70%;
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				gap: 10px;
+				.avatar {
+					min-width: 60px;
+				}
+				.mainInfo {
+					min-width: 20%;
+					display: flex;
+					flex-direction: column;
+					.name {
+						color: var(--text-main-color);
+						font-weight: 500;
+						font-size: clamp(18px, 2vw, 22px);
+						margin: 0;
+					}
+					.slug {
+						color: var(--text-sub-color);
+						font-weight: 500;
+						font-size: clamp(14px, 0.9vw, 16px);
+					}
+				}
+				.other {
+					text-align: center;
+					min-width: 10%;
+					font-size: 16px;
+					font-weight: 500;
+					color: var(--text-sub-color);
+				}
+			}
+			.status {
+				min-width: 10%;
+				font-size: 20px;
+				font-weight: bold;
+				&.active {
+					color: var(--success-color);
+				}
+			}
+
+			&:hover {
+				box-shadow: 0 0 20px var(--shadow-main-color);
+			}
+			.actionButton {
+				width: 50px;
+				background-color: var(--danger-color);
+			}
+		}
+	}
+}

@@ -7,5 +7,8 @@
 	"jsxSingleQuote": true,
 	"arrowParens": "avoid",
 	"importOrderSeparation": true,
-	"importOrderSortSpecifiers": true
+	"importOrderSortSpecifiers": true,
+	"printWidth": 80,
+	"plugins": ["@trivago/prettier-plugin-sort-imports"],
+	"importOrder": ["^@next/(.*)$", "^@services/(.*)$", "^@ui/(.*)$", "^[./]"]
 }

@@ -6,7 +6,7 @@
 	gap: 20px;
 	padding: 20px;
 	border-radius: 10px;
-	border: 2px solid var(--mainBorderColor);
+	border: 2px solid var(--border-main-color);
   .tags {
 		min-width: 700px;
 		padding-top: 8px;
@@ -22,6 +22,6 @@
 		font-weight: bold;
     font-size: clamp(16px, 2vw, 22px);
 		white-space: nowrap;
-		color: var(--mainColor);
+		color: var(--text-main-color);
 	}
 }

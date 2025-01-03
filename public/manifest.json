@@ -1,1 +1,40 @@
-{"theme_color":"#ffffff","background_color":"#000000","icons":[{"purpose":"maskable","sizes":"512x512","src":"icon512_maskable.png","type":"image/png"},{"purpose":"any","sizes":"512x512","src":"icon512_rounded.png","type":"image/png"}],"orientation":"any","display":"fullscreen","dir":"auto","lang":"en-US","name":"Vega blog","short_name":"Vega","start_url":"/","scope":"/"}
+{
+	"theme_color": "#ffffff",
+	"background_color": "#000000",
+	"icons": [
+		{
+			"purpose": "maskable",
+			"sizes": "512x512",
+			"src": "./pwa-image/icon512_maskable.png",
+			"type": "image/png"
+		},
+		{
+			"purpose": "any",
+			"sizes": "512x512",
+			"src": "./pwa-image/icon512_rounded.png",
+			"type": "image/png"
+		}
+	],
+	"orientation": "any",
+	"display": "fullscreen",
+	"dir": "auto",
+	"lang": "en-US",
+	"name": "Vega blog",
+	"short_name": "Vega",
+	"start_url": "/",
+	"scope": "/",
+	"screenshots": [
+    {
+      "src": "/pwa-image/screenshot1.png",
+      "type": "image/png",
+      "sizes": "2533x1232",
+      "form_factor": "wide"
+    },
+		   {
+      "src": "/pwa-image/screenshot1-mobil.png",
+      "type": "image/png",
+      "sizes": "503x1114",
+      "form_factor": "narrow"
+    }
+  ]
+}

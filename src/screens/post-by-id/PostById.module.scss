@@ -22,7 +22,7 @@
     font-size: clamp(22px, 2vw, 42px);
     font-weight: bold;
 		margin-bottom: 15px;
-		color: var(--mainColor);
+		color: var(--text-main-color);
   }
 	.path {
 		display: flex;
@@ -31,8 +31,8 @@
 		.item {
 			padding: 0px 16px;
 			font-weight: 500;
-			color: var(--subColor);
-			border-left: 2px solid var(--mainBorderColor);
+			color: var(--text-sub-color);
+			border-left: 2px solid var(--border-main-color);
 			font-size: clamp(12px, 1vw, 16px);
 			cursor: pointer;
 		}
@@ -47,7 +47,7 @@
     width: 100%;
     align-items: center;
     gap: 12px;
-    color: var(--subColor);
+    color: var(--text-sub-color);
 		margin-bottom: 25px;
     .date {
       font-size: clamp(14px, 1vw, 18px);
@@ -77,21 +77,21 @@
   .content {
     font-size: 1.1rem;
     line-height: 1.6;
-    color: var(--mainColor);
+    color: var(--text-main-color);
     padding: 20px 0px;
     border-radius: 8px;
     margin: 20px 0;
 
     strong {
-      color: #2a9d8f;
+      color: var(--accent-main-color);
       font-weight: bold;
     }
 
     a {
-      color: #e76f51;
+      color: var(--accent-main-color);
       text-decoration: underline;
       &:hover {
-        color: #f4a261;
+        color: var(--accent-dark-color);
       }
     }
 
@@ -103,7 +103,7 @@
     }
   }
 }
-.nav__container {
+.navContainer {
   height: 100%;
 	width: 100%;
   .nav {
@@ -123,7 +123,7 @@
         width: 100%;
         margin-bottom: 8px;
         a {
-					color: var(--mainColor);
+					color: var(--text-main-color);
           text-decoration: none;
           text-transform: uppercase;
 					padding: 10px;
@@ -132,12 +132,12 @@
           transition: color 0.3s, border-right 0.3s;
 
           &:hover {
-            color: #2a9d8f;
+            color: var(--accent-main-color);
           }
         }
 
         &.activeLi a {
-          border-right: 3px solid var(--mainColor);
+          border-right: 3px solid var(--text-main-color);
           font-weight: bold;
 					background-color: var(--200MainColor);
         }

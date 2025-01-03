@@ -6,7 +6,7 @@ const fetchData = async () => {
 	try {
 		const res = await Promise.all([
 			await postService.getMostViewedPosts(5),
-			await postService.getPosts({ limit: 10 }),
+			await postService.getPosts({ limit: 6 }),
 			await tagService.getTags(10)
 		])
 		return res

@@ -12,37 +12,37 @@ interface Props {
 
 const ActionPost: FC<Props> = ({ post }) => {
 	const {
-		mutateLike,
-		mutateDislike,
-		mutateFavorite,
-		isLike,
-		isDislike,
-		isFavorite
+		isDisliked,
+		isLiked,
+		isFavorited,
+		handleToggleLike,
+		handleToggleDislike,
+		handleToggleFavorite
 	} = useActionPost(post as Post)
 
 	return (
 		<div className={styles.buttons}>
 			<button
 				className={clsx(styles.crudButton, {
-					[styles.active]: isFavorite
+					[styles.active]: isFavorited
 				})}
-				onClick={() => mutateFavorite()}
+				onClick={() => handleToggleFavorite()}
 			>
 				<MdStarOutline />
 			</button>
 			<button
 				className={clsx(styles.crudButton, {
-					[styles.active]: isLike
+					[styles.active]: isLiked
 				})}
-				onClick={() => mutateLike()}
+				onClick={() => handleToggleLike()}
 			>
 				<BsArrowUp />
 			</button>
 			<button
 				className={clsx(styles.crudButton, {
-					[styles.active]: isDislike
+					[styles.active]: isDisliked
 				})}
-				onClick={() => mutateDislike()}
+				onClick={() => handleToggleDislike()}
 			>
 				<BsArrowDown />
 			</button>

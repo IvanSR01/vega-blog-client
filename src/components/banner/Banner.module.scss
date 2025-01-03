@@ -6,7 +6,7 @@
   flex-direction: column;
   padding: 30px;
   gap: 25px;
-  background-color: var(--bannerbackgroundColor);
+  background-color: var(--banner-bg-color);
   border-radius: 20px;
   .heading {
     width: 100%;
@@ -22,13 +22,13 @@
         display: flex;
         flex-direction: column;
         .name {
-          color: var(--mainColor);
+          color: var(--text-main-color);
           font-weight: 500;
           font-size: clamp(18px, 2vw, 22px);
           margin: 0;
         }
         .slug {
-          color: var(--subColor);
+          color: var(--text-sub-color);
           font-weight: 500;
           font-size: clamp(14px, 0.9vw, 16px);
         }
@@ -55,7 +55,7 @@
     align-items: center;
     gap: 20px;
     padding: 15px 20px;
-    background-color: var(--bannerbackgroundColor);
+    background-color: var(--banner-bg-color);
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s;
@@ -69,7 +69,7 @@
       gap: 5px;
 
       h4 {
-        color: var(--mainColor);
+        color: var(--text-main-color);
         font-size: clamp(14px, 1vw, 16px);
         font-weight: 500;
         margin: 0;
@@ -78,7 +78,7 @@
       }
 
       p {
-        color: var(--bannerTextColor);
+        color: var(--banner-text-color);
         font-size: clamp(18px, 1.5vw, 22px);
         font-weight: 700;
         margin: 0;
@@ -87,7 +87,7 @@
   }
 
   .description {
-    color: var(--bannerTextColor);
+    color: var(--banner-text-color);
     font-size: clamp(14px, 1vw, 18px);
     font-weight: 500;
     max-width: 640px;
@@ -103,14 +103,14 @@
     align-items: center;
     justify-content: center;
     border-radius: 8px;
-    background-color: var(--socialBackgroundColor);
+    background-color: var(--social-bg-color);
     color: #fff;
     cursor: pointer;
     font-size: 18px;
     transition: background-color 0.5s;
   }
   .bannerButton:hover {
-    background-color: var(--accentColor);
+    background-color: var(--accent-main-color);
   }
 }
 

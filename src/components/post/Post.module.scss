@@ -2,12 +2,13 @@
 	position: relative;
 	width: 100%;
 	height: auto;
-	border: 2px solid var(--mainBorderColor);
+	border: 2px solid var(--border-main-color);
 	padding: 20px;
-	color: var(--mainColor);
-	border-radius: 20px;
+	color: var(--text-main-color);
+	border-radius: 15px;
 	display: flex;
 	flex-direction: row;
+	transition: box-shadow 0.3s ease;
 	.postImage {
 		width: 40%;
 		height: 230px;
@@ -39,7 +40,7 @@
 		display: flex;
 		align-items: center;
 		gap: 12px;
-		color: var(--subColor);
+		color: var(--text-sub-color);
 		.authorName {
 			font-size: clamp(14px, 1vw, 18px);
 			font-weight: bold;
@@ -48,6 +49,9 @@
 			margin-left: 7px;
 			font-size: clamp(14px, 1vw, 18px);
 		}
+	}
+	&:hover {
+		box-shadow: 0 0 20px var(--shadow-main-color);
 	}
 }
 

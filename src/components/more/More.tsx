@@ -1,8 +1,10 @@
 'use client'
-import { FC } from 'react'
-import styles from './More.module.scss'
-import { motion } from 'framer-motion'
+
 import { itemVariants } from '@/shared/motion/variants'
+import { motion } from 'framer-motion'
+import { FC } from 'react'
+
+import styles from './More.module.scss'
 
 interface Props {
 	onClick?: () => void

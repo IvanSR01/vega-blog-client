@@ -1,7 +1,14 @@
 'use client'
-import { FC } from 'react'
-import styles from './Banner.module.scss'
+
+import { useProfile } from '@/hooks/useProfile'
+import { LINKS } from '@/shared/constants/links'
+import { User } from '@/shared/interfaces/user.interface'
+import { itemVariants } from '@/shared/motion/variants'
 import UserAvatar from '@/shared/ui/user-avatar/UserAvatar'
+import { motion } from 'framer-motion'
+import parse from 'html-react-parser'
+import { useRouter } from 'next/navigation'
+import { FC } from 'react'
 import {
 	FaEdit,
 	FaFacebook,
@@ -10,20 +17,13 @@ import {
 	FaTwitter,
 	FaYoutube
 } from 'react-icons/fa'
-import { useRouter } from 'next/navigation'
-import { motion } from 'framer-motion'
-import { itemVariants } from '@/shared/motion/variants'
+
+import styles from './Banner.module.scss'
 import useBanner from './useBanner'
-import { User } from '@/shared/interfaces/user.interface'
-import parse from 'html-react-parser'
-import { LINKS } from '@/shared/constants/links'
 import { useFollow } from './useFollow'
 
-interface Props {
-	profile: User | undefined
-}
-
-const Banner: FC<Props> = ({ profile }) => {
+const Banner: FC = () => {
+	const { profile } = useProfile()
 	const { isAuthorPage, isYourProfile } = useBanner(profile as User)
 	const { isFollow, toggleFollow } = useFollow(profile?.id as number)
 	const { push } = useRouter()
@@ -66,7 +66,7 @@ const Banner: FC<Props> = ({ profile }) => {
 							<button
 								className={styles.bannerButton}
 								onClick={() =>
-									push(isAuthorPage ? '/profile/user' : '/profile/author')
+									push(isAuthorPage ? LINKS.PROFILE : LINKS.AUTHOR_PROFILE)
 								}
 							>
 								Switch to {isAuthorPage ? 'User' : 'Author'} page

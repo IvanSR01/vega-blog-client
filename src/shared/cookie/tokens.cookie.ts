@@ -1,14 +1,14 @@
-import Cookies from 'js-cookie'
 import { TypeTokens } from '@/shared/types/tokens.type'
+import Cookies from 'js-cookie'
 
 const getTokens = (): TypeTokens => ({
-	accessToken: Cookies.get('access-token') as string,
-	refreshToken: Cookies.get('refresh-token') as string,
+	accessToken: Cookies.get('access-token'),
+	refreshToken: Cookies.get('refresh-token')
 })
 
 const saveTokens = ({ accessToken, refreshToken }: TypeTokens) => {
-	Cookies.set('access-token', accessToken)
-	Cookies.set('refresh-token', refreshToken)
+	Cookies.set('access-token', accessToken ? accessToken : '')
+	Cookies.set('refresh-token', refreshToken ? refreshToken : '')
 }
 
 const removeTokens = () => {

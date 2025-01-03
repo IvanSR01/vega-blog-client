@@ -4,7 +4,7 @@
 	h3 {
 		font-weight: bold;
 		font-size: clamp(32px, 2vw, 42px);
-		color: var(--mainColor);
+		color: var(--text-main-color);
 	}
 	.items {
 		margin-top: clamp(20px, 2vw, 40px);
@@ -23,7 +23,7 @@
 		align-items: center;
 		justify-content: center;
 		font-weight: 500;
-		color: var(--mainColor);
+		color: var(--text-main-color);
 		@media (max-width: 1200px) {
 			flex-direction: column;
 		}

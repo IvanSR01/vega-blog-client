@@ -1,20 +1,25 @@
 'use client'
-import { FC } from 'react'
-import styles from './PopularTags.module.scss'
-import Tag from '@/shared/ui/tag/Tag'
-import { popularTags } from '@/shared/constants/tags'
-import Link from 'next/link'
+
 import ScrollLayout from '@/components/scroll-layout/ScrollLayout'
+import { LINKS } from '@/shared/constants/links'
+import { popularTags } from '@/shared/constants/tags'
 import { Tag as TagType } from '@/shared/interfaces/tag.interface'
-import { useParams } from 'next/navigation'
-import { cleanTag } from '@/shared/utils/cleanTag'
+import Tag from '@/shared/ui/tag/Tag'
+import { connectUrl } from '@/shared/utils/connectUrl'
+import { parseTag, unParseTag } from '@/shared/utils/tag.utils'
+import Link from 'next/link'
+import { useParams, useSearchParams } from 'next/navigation'
+import { FC } from 'react'
+
+import styles from './PopularTags.module.scss'
 
 interface Props {
-	tags: TagType[]
+	tags: TagType[] | undefined
 }
 
 const PopularTags: FC<Props> = ({ tags }) => {
 	const parmas = useParams()
+	const searchParams = useSearchParams()
 	return (
 		<div className={styles.popular}>
 			<h3>Most Search Tags : </h3>
@@ -22,15 +27,30 @@ const PopularTags: FC<Props> = ({ tags }) => {
 				{tags && tags.length ? (
 					<div className={styles.tags}>
 						{tags.map(item => (
-							<Link href={'/blog' + '/' + item.name} key={item.id}>
-								<Tag isAltStyle={item.name !== cleanTag((parmas.tag as string) || '')}>{item.name}</Tag>
+							<Link
+								href={connectUrl(
+									LINKS.BLOG,
+									'/',
+									parseTag(item.name),
+									'?',
+									searchParams?.toString()
+								)}
+								key={item.id}
+							>
+								<Tag
+									isAltStyle={
+										item.name !== unParseTag((parmas.tag as string) || '')
+									}
+								>
+									{item.name}
+								</Tag>
 							</Link>
 						))}
 					</div>
 				) : (
 					<div className={styles.tags}>
 						{popularTags.map((item: string) => (
-							<Link href={'/blog' + '/' + item} key={item}>
+							<Link href={connectUrl(LINKS.BLOG, '/', item)} key={item}>
 								<Tag isAltStyle>{item}</Tag>
 							</Link>
 						))}

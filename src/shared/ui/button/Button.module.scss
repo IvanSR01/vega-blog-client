@@ -5,11 +5,11 @@
 	align-items: center;
 	justify-content: center;
 	color: #fff;
-	background-color: var(--accentColor);
+	background-color: var(--accent-main-color);
 	border-radius: 10px;
 }
 .altStyle {
-	color: var(--accentColor);
-	background-color: var(--100AccentColor);
-	border: 2px solid var(--accentColor);
+	color: var(--accent-main-color);
+	background-color: var(--accent-light-color);
+	border: 2px solid var(--accent-main-colorr);
 }

@@ -1,16 +1,16 @@
-import Tag from '@/shared/ui/tag/Tag'
-import Image from 'next/image'
-import Link from 'next/link'
-import { FC } from 'react'
-import styles from './Post.module.scss'
-
 import { LINKS } from '@/shared/constants/links'
 import { Post as PostType } from '@/shared/interfaces/post.interface'
+import Tag from '@/shared/ui/tag/Tag'
 import { addFullUrl } from '@/shared/utils/addFullUrl'
 import { connectUrl } from '@/shared/utils/connectUrl'
 import { formatDate } from '@/shared/utils/formatDate'
+import Image from 'next/image'
+import Link from 'next/link'
+import { FC } from 'react'
+
 import ActionPost from '../action-post/ActionPost'
 import MiniAuthor from '../mini-author/MiniAuthor'
+import styles from './Post.module.scss'
 import AuthorTools from './author-tools/AuthorTools'
 
 interface Props {

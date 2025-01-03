@@ -1,22 +1,22 @@
 .quoteOfTheWeek {
 	width: 100%;
   padding: 20px;
-  border-left: 5px solid var(--accentColor);
-  background-color: var(--subBackgroundColor);
+  border-left: 5px solid var(--accent-main-color);
+  background-color: var(--bg-sub-color);
   font-family: "Georgia", serif;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
   & .quoteText {
     font-size: 1.5rem;
-    color: var(--mainColor);
+    color: var(--text-main-color);
     margin: 0 0 10px 0;
     line-height: 1.4;
   }
 
   & .quoteAuthor {
     font-size: 1rem;
-    color: var(--subColor);
+    color: var(--text-sub-color);
     text-align: right;
     margin-top: 5px;
   }

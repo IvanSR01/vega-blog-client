@@ -1,6 +1,6 @@
 .footer {
 	width: 100%;
-	background-color: var(--subBackgroundColor);
+	background-color: var(--bg-sub-color);
 	padding: 40px 0;
 	display: flex;
 	justify-content: center;
@@ -21,7 +21,7 @@
 			font-size: 1.25rem;
 			margin-bottom: 15px;
 			font-weight: bold;
-			color: var(--mainColor);
+			color: var(--text-main-color);
 		}
 
 		a {
@@ -30,7 +30,7 @@
 			font-size: 1rem;
 			line-height: 1.5;
 			margin-bottom: 15px;
-			color: var(--subColor);
+			color: var(--text-sub-color);
 		}
 		.about {
 			width: 25%;
@@ -38,31 +38,32 @@
 			div {
 				font-size: 0.9rem;
 				margin-top: 5px;
-				color: var(--mainColor);
+				color: var(--text-main-color);
 			}
 			p {
-				color: var(--subColor);
+				color: var(--text-sub-color);
 			}
-		} 
+		}
 
 		.item {
-			color: var(--mainColor);
+			color: var(--text-main-color);
 			width: 10%;
 			min-width: 120px;
 			div {
 				font-size: 0.9rem;
 				margin-top: 5px;
-				color: var(--mainColor);
+				color: var(--text-main-color);
 			}
 		}
 		.feedback {
 			width: 25%;
-			background-color: var(--mainBackgroundColor);
+			background-color: var(--bg-main-color);
 			padding: 32px;
 			border-radius: 10px;
 			display: flex;
 			flex-direction: column;
 			gap: 10px;
+			color: var(--text-main-color);
 			@media (max-width: 1050px) {
 				min-width: none;
 				width: 100%;

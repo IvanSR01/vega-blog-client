@@ -7,14 +7,17 @@ export const reactSelectStyles: TStyles = {
 		},
 		boxShadow: 'none'
 	}),
+
 	option: (provided: any, state: any) => ({
 		...provided,
 		backgroundColor: state.isSelected
-			? 'var(--accentColor)'
+			? 'white'
 			: state.isFocused
 			? 'rgba(var(--accentColor-rgb), 0.1)'
 			: 'white',
-		color: state.isSelected ? 'white' : 'var(--accentColor)'
+		color: state.isSelected
+			? 'var(--text-main-color)'
+			: 'var(--accent-main-color)'
 	}),
 	singleValue: (provided: any) => ({
 		...provided,

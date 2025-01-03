@@ -1,13 +1,16 @@
-'use client';
-import type { NextPage } from "next";
-import dynamic from "next/dynamic";
+'use client'
 
-const NewPost = dynamic(
-  () => import("@/screens/profile/profile-pages/manage-post/ManagePost"),
-  { ssr: false }
-);
+import type { NextPage } from 'next'
+import dynamic from 'next/dynamic'
+
+const ManagePost = dynamic(
+	() => import('@/screens/profile/profile-pages/manage-post/ManagePost'),
+	{
+		ssr: false
+	}
+)
 
 const page: NextPage = () => {
-  return <NewPost />;
-};
-export default page;
+	return <ManagePost />
+}
+export default page

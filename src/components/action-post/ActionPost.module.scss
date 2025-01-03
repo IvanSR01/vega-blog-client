@@ -7,29 +7,30 @@
 		background-color: transparent;
 		cursor: pointer;
 		transition: background-color 0.5s;
+		color: var(--text-main-color);
 	}
 	.crudButton:first-child {
 		&:hover {
-			background-color: var(--200YellowColor);
+			background-color: var(--bg-yellow-transparent);
 		}
 		&.active {
-			background-color: var(--200YellowColor);
+			background-color: var(--bg-yellow-transparent);
 		}
 	}
 	.crudButton:nth-child(2) {
 		&:hover {
-			background-color: var(--200BlueColor);
+			background-color: var(--bg-blue-transparent);
 		}
 		&.active {
-			background-color: var(--200BlueColor);
+			background-color: var(--bg-blue-transparent);
 		}
 	}
 	.crudButton:nth-child(3) {
 		&:hover {
-			background-color: var(--200RedColor);
+			background-color: var(--bg-red-transparent);
 		}
 		&.active {
-			background-color: var(--200RedColor);
+			background-color: var(--bg-red-transparent);
 		}
 	}
 }

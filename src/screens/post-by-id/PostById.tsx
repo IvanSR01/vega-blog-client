@@ -1,20 +1,22 @@
 'use client'
-import { FC, useEffect, useRef, useState } from 'react'
-import styles from './PostById.module.scss'
-import Image from 'next/image'
-import Tag from '@/shared/ui/tag/Tag'
-import MiniAuthor from '@/components/mini-author/MiniAuthor'
-import Comments from '@/components/comments/Comments'
-import { GrView } from 'react-icons/gr'
-import SideBar from '@/components/side-bar/SideBar'
-import Link from 'next/link'
-import { Post } from '@/shared/interfaces/post.interface'
-import { addFullUrl } from '@/shared/utils/addFullUrl'
-import parse from 'html-react-parser'
-import { Comment } from '@/shared/interfaces/comment.interface'
-import { LINKS } from '@/shared/constants/links'
-import { connectUrl } from '@/shared/utils/connectUrl'
+
 import ActionPost from '@/components/action-post/ActionPost'
+import Comments from '@/components/comments/Comments'
+import MiniAuthor from '@/components/mini-author/MiniAuthor'
+import SideBar from '@/components/side-bar/SideBar'
+import { LINKS } from '@/shared/constants/links'
+import { Comment } from '@/shared/interfaces/comment.interface'
+import { Post } from '@/shared/interfaces/post.interface'
+import Tag from '@/shared/ui/tag/Tag'
+import { addFullUrl } from '@/shared/utils/addFullUrl'
+import { connectUrl } from '@/shared/utils/connectUrl'
+import parse from 'html-react-parser'
+import Image from 'next/image'
+import Link from 'next/link'
+import { FC, useEffect, useRef, useState } from 'react'
+import { GrView } from 'react-icons/gr'
+
+import styles from './PostById.module.scss'
 
 interface Props {
 	post: Post | null
@@ -47,20 +49,18 @@ const PostById: FC<Props> = ({ post, comments }) => {
 
 		const observer = new IntersectionObserver(
 			entries => {
-				// Фильтруем видимые секции
 				const visibleSections = entries
 					.filter(entry => entry.isIntersecting)
-					.sort((a, b) => b.intersectionRatio - a.intersectionRatio) // Сортируем по степени видимости
+					.sort((a, b) => b.intersectionRatio - a.intersectionRatio)
 
 				if (visibleSections.length > 0) {
-					// Берем наиболее видимую секцию
 					const mostVisibleSection = visibleSections[0].target.id
 					setActiveAnchor(`#${mostVisibleSection}`)
 				}
 			},
 			{
-				threshold: [0.25, 0.5, 0.75], // Проверяем несколько уровней видимости
-				rootMargin: '-20% 0px -20% 0px' // Предотвращает срабатывание на границе
+				threshold: [0.25, 0.5, 0.75],
+				rootMargin: '-20% 0px -20% 0px'
 			}
 		)
 
@@ -74,7 +74,7 @@ const PostById: FC<Props> = ({ post, comments }) => {
 	return (
 		<SideBar
 			CommonComponent={() => (
-				<nav className={styles.nav__container}>
+				<nav className={styles.navContainer}>
 					<div className={styles.nav}>
 						<ul>
 							{anchors.map((anchor, index) => (
@@ -106,7 +106,7 @@ const PostById: FC<Props> = ({ post, comments }) => {
 					</div>
 					<div className={styles.heading}>
 						<Tag> {post?.tag?.name}</Tag>
-						<ActionPost post={post as Post}/>
+						<ActionPost post={post as Post} />
 					</div>
 					<h1 className={styles.title}>{post?.title}</h1>
 					<div className={styles.detalis}>

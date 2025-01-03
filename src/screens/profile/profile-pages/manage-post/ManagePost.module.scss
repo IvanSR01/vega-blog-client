@@ -12,10 +12,10 @@
 		display: flex;
 		flex-direction: column;
 		gap: 20px;
-		background-color: #f9f9f9;
+		background-color: var(--bg-main-color);
 		padding: 30px;
 		border-radius: 10px;
-		box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+		box-shadow: 0 4px 10px var(--shadow-main-color);
 
 		
 
@@ -35,7 +35,7 @@
 				top: 0;
 				cursor: pointer;
 				svg {
-					color: #333;
+					color: var(--text-main-color);
 					font-size: 20px;
 				}
 			}
@@ -50,7 +50,7 @@
 			font-size: 16px;
 			font-weight: 500;
 			margin-bottom: 5px;
-			color: #333;
+			color: var(--text-sub-color);
 		}
 
 		.input {
@@ -62,7 +62,7 @@
 			transition: border-color 0.2s;
 
 			&:focus {
-				border-color: var(--mainColor);
+				border-color: var(--text-main-color);
 				outline: none;
 			}
 		}

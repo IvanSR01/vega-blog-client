@@ -1,11 +1,14 @@
-import { FC } from 'react'
-import styles from './Footer.module.scss'
-import clsx from 'clsx'
-import Input from '@/shared/ui/input/Input'
-import Button from '@/shared/ui/button/Button'
-import { MdEmail } from 'react-icons/md'
+import { LINKS } from '@/shared/constants/links'
 import { popularTags } from '@/shared/constants/tags'
+import Button from '@/shared/ui/button/Button'
+import Input from '@/shared/ui/input/Input'
+import { connectUrl } from '@/shared/utils/connectUrl'
+import clsx from 'clsx'
 import Link from 'next/link'
+import { FC } from 'react'
+import { MdEmail } from 'react-icons/md'
+
+import styles from './Footer.module.scss'
 
 const Footer: FC = () => {
 	return (
@@ -37,7 +40,7 @@ const Footer: FC = () => {
 					<div className={styles.item}>
 						<h4>Categorys</h4>
 						{categorys.map(item => (
-							<Link href={'/blog' + '/' + item} key={item}>
+							<Link href={connectUrl(LINKS.BLOG, '/', item)} key={item}>
 								{item}
 							</Link>
 						))}
@@ -60,11 +63,11 @@ const Footer: FC = () => {
 export default Footer
 
 const links = [
-	{ title: 'About', href: '/contact/about' },
-	{ title: 'Contact', href: '/contact/request' },
-	{ title: 'Blog', href: '/blog' },
-	{ title: 'Single Post', href: '/single-post' },
-	{ title: 'Sing In', href: '/auth/sing-in' }
+	{ title: 'About', href: LINKS.ABOUT },
+	{ title: 'Contact', href: LINKS.REQUEST },
+	{ title: 'Blog', href: LINKS.BLOG },
+	{ title: 'Single Post', href: LINKS.SINGLE_POST },
+	{ title: 'Sing In', href: LINKS.AUTH_SING_IN }
 ]
 
 const categorys = popularTags.slice(0, 5)

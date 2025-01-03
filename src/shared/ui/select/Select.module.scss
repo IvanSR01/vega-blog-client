@@ -1,97 +1,98 @@
 .selectContainer {
-  border: 2px solid var(--mainBorderColor);
-  border-radius: 8px;
-  position: relative;
-  height: 50px;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  padding: 0px 20px;
-  cursor: pointer;
+	border: 2px solid var(--border-main-color);
+	border-radius: 8px;
+	position: relative;
+	height: 50px;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	padding: 0px 20px;
+	cursor: pointer;
 }
 
 .select {
-	color: var(--mainColor);
+	color: var(--text-main-color);
 }
 
 .selectButton {
-  width: 100%;
-  padding: 0.75em 1em;
-  background-color: var(--inputBackgroundColor);
-  color: var(--mainColor);
-  border: 1px solid var(--mainBorderColor);
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 16px;
-  box-shadow: 0 4px 6px var(--shadowColor);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  transition: all 0.3s ease;
+	width: 100%;
+	padding: 0.75em 1em;
+	background-color: var(--bg-input-color);
+	color: var(--text-main-color);
+	border: 1px solid var(--border-main-color);
+	border-radius: 8px;
+	cursor: pointer;
+	font-size: 16px;
+	box-shadow: 0 4px 6px var(--shadow-main-color);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	transition: all 0.3s ease;
 }
 
 .selectButton:hover {
-  border-color: var(--accentColor);
+	border-color: var(--accent-main-color);
 }
 
 .selectButton:focus {
-  outline: none;
-  border-color: var(--accentColor);
-  box-shadow: 0 0 0 4px var(--100AccentColor), 0 6px 8px var(--shadowColor);
+	outline: none;
+	border-color: var(--accent-main-color);
+	box-shadow: 0 0 0 4px var(--accent-light-color),
+		0 6px 8px var(--shadow-main-color);
 }
 
 .icon {
-  font-size: 1em;
-  color: var(--subColor);
-  transition: transform 0.3s;
+	font-size: 1em;
+	color: var(--text-sub-color);
+	transition: transform 0.3s;
 }
 
 .iconOpen {
-  transform: rotate(180deg);
+	transform: rotate(180deg);
 }
 
 .optionsList {
-  left: 0;
-  top: 60px;
-  position: absolute;
-  z-index: 1000000000000000000;
-  width: 100%;
-  min-width: 100%;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px var(--shadowColor);
-  max-height: 200px;
-  overflow-y: auto;
-  background-color: var(--mainBackgroundColor);
-  border: 1px solid var(--mainBorderColor);
+	left: 0;
+	top: 60px;
+	position: absolute;
+	z-index: 100000000;
+	width: 100%;
+	min-width: 100%;
+	border-radius: 8px;
+	box-shadow: 0 4px 8px var(--shadow-main-color);
+	max-height: 200px;
+	overflow-y: auto;
+	background-color: var(--bg-main-color);
+	border: 1px solid var(--border-main-color);
 }
 .optionsList::-webkit-scrollbar {
-  height: 2px;
+	height: 2px;
 }
 .optionsList::-webkit-scrollbar-track {
-  background-color: #f1f1f1;
-  border-radius: 10px;
+	background-color: #f1f1f1;
+	border-radius: 10px;
 }
 .optionsList::-webkit-scrollbar-thumb {
-  background-color: var(--accentColor);
-  border-radius: 10px;
+	background-color: var(--accent-main-color);
+	border-radius: 10px;
 }
 .optionsList::-webkit-scrollbar-thumb:hover {
-  background-color: #555;
+	background-color: #555;
 }
 
 .option {
-  padding: 0.75em 1em;
-  cursor: pointer;
-  color: var(--mainColor);
-  background-color: var(--mainBackgroundColor);
-  transition: background-color 0.2s;
+	padding: 0.75em 1em;
+	cursor: pointer;
+	color: var(--text-main-color);
+	background-color: var(--bg-main-color);
+	transition: background-color 0.2s;
 }
 
 .option:hover {
-  background-color: var(--100AccentColor);
+	background-color: var(--accent-light-color);
 }
 
 .optionSelected {
-  color: var(--accentColor);
-  font-weight: bold;
+	color: var(--accent-main-color);
+	font-weight: bold;
 }

@@ -8,27 +8,27 @@
 		width: 100%;
 		padding: 12px;
 		font-size: 16px;
-		background-color: var(--inputBackgroundColor);
-		color: var(--mainColor);
+		background-color: var(--bg-input-color);
+		color: var(--text-main-color);
 		outline: none;
-		border: 2px solid var(--mainBorderColor);
+		border: 2px solid var(--border-main-color);
 		border-radius: 8px;
 		resize: vertical; // позволяет изменять размер только по вертикали
 		transition: border-color 0.3s ease;
 
 		&:disabled {
-			background-color: #dfdfdf;
+			background-color: var(--bg-sub-color);
 		}
 
 		&::placeholder {
-			color: var(--subColor);
+			color: var(--text-sub-color);
 		}
 	}
 
 	.helperText {
 		margin-top: 8px;
 		font-size: 14px;
-		color: var(--subColor);
+		color: var(--text-sub-color);
 	}
 }
 
