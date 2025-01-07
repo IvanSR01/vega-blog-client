@@ -1,6 +1,7 @@
 import PopularPosts from '@/components/popular-posts/PopularPosts'
 import { LINKS } from '@/shared/constants/links'
 import { Post } from '@/shared/interfaces/post.interface'
+import { Quote } from '@/shared/interfaces/quote.interface'
 import { Tag } from '@/shared/interfaces/tag.interface'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
@@ -17,17 +18,15 @@ interface Props {
 	mostViewedPosts: Post[]
 	posts: Post[]
 	tags: Tag[]
+	quote: Quote | null
 }
 
-const Home: FC<Props> = ({ mostViewedPosts, posts, tags }) => {
+const Home: FC<Props> = ({ mostViewedPosts, posts, tags, quote }) => {
 	return (
 		<div className={styles.home}>
 			<PopularPosts posts={mostViewedPosts} />
 			<Tags tags={tags} />
-			<QuoteOfTheWeek
-				quote='Success is not final, failure is not fatal: It is the courage to continue that counts.'
-				author='Winston Churchill'
-			/>
+			{quote && <QuoteOfTheWeek quote={quote.text} author={quote.author} />}
 			<ManyPost title='Latest' posts={posts} />
 			<Link href={LINKS.BLOG}>
 				<More />

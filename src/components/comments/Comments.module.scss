@@ -1,9 +1,7 @@
 .comments {
   width: 100%;
-  padding: 20px;
   background-color: var(--bg-main-color);
   border-radius: 8px;
-  box-shadow: 0 4px 8px var(--shadow-main-color);
   h2 {
     font-size: 18px;
     margin-bottom: 20px;
@@ -63,6 +61,9 @@
       &:hover {
         background-color: var(--accent-main-color);
       }
+			@media (max-width: 600px) {
+				padding: 10px 15px;
+			}
     }
   }
 	.commentsListsEmpty {
@@ -114,8 +115,10 @@
           margin: 0;
           font-size: 14px;
           color: var(--text-main-color);
+					word-break: break-all;
         }
       }
     }
   }
 }
+

@@ -1,10 +1,12 @@
 'use client'
-import { FC } from 'react'
-import styles from './ManyPost.module.scss'
-import Post from '../post/Post'
-import { motion } from 'framer-motion'
-import { itemVariants } from '@/shared/motion/variants'
+
 import { Post as PostType } from '@/shared/interfaces/post.interface'
+import { itemVariants } from '@/shared/motion/variants'
+import { motion } from 'framer-motion'
+import { FC } from 'react'
+
+import Post from '../post/Post'
+import styles from './ManyPost.module.scss'
 
 interface ManyPostProps {
 	title: string
@@ -43,7 +45,7 @@ const ManyPost: FC<ManyPostProps> = ({ title, baseGridColumn, posts }) => {
 								viewport={{ once: true, amount: 0.3 }}
 								transition={{
 									duration: 0.5,
-									delay: 0.2 + 0.2 * index
+									delay: 0.2 + 0.2 * (index > 5 ? 5 : index)
 								}}
 								key={index}
 							>
@@ -53,9 +55,7 @@ const ManyPost: FC<ManyPostProps> = ({ title, baseGridColumn, posts }) => {
 					</div>
 				</>
 			) : (
-				<div className={styles.notFound}>
-					Posts not found
-				</div>
+				<div className={styles.notFound}>Posts not found</div>
 			)}
 		</div>
 	)

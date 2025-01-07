@@ -5,6 +5,7 @@ import commentService from '@/services/comment-service/comment.service'
 import { LINKS } from '@/shared/constants/links'
 import { Comment } from '@/shared/interfaces/comment.interface'
 import UserAvatar from '@/shared/ui/user-avatar/UserAvatar'
+import { connectUrl } from '@/shared/utils/connectUrl'
 import { formatDate } from '@/shared/utils/formatDate'
 import { useMutation, useQuery } from '@tanstack/react-query'
 import Link from 'next/link'
@@ -78,10 +79,19 @@ const Comments: FC<Props> = ({ comments, postId }) => {
 								/>
 								<div className={styles.commentContent}>
 									<div className={styles.commentHeader}>
-										<span className={styles.author}>
-											{comment?.author?.firstName} {comment?.author?.middleName}{' '}
-											{comment?.author?.lastName}
-										</span>
+										<Link
+											href={connectUrl(
+												LINKS.AUTHOR_ID,
+												'/',
+												comment?.author?.id.toString() || ''
+											)}
+										>
+											<span className={styles.author}>
+												{comment?.author?.firstName}{' '}
+												{comment?.author?.middleName}{' '}
+												{comment?.author?.lastName}
+											</span>
+										</Link>
 										<span className={styles.timestamp}>
 											{formatDate(comment?.createAt)}
 										</span>

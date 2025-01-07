@@ -1,9 +1,10 @@
-import { FC } from 'react'
-import styles from './ActionPost.module.scss'
-import { MdStarOutline } from 'react-icons/md'
-import clsx from 'clsx'
-import { BsArrowDown, BsArrowUp } from 'react-icons/bs'
 import { Post } from '@/shared/interfaces/post.interface'
+import clsx from 'clsx'
+import { FC } from 'react'
+import { BsArrowDown, BsArrowUp } from 'react-icons/bs'
+import { MdStarOutline } from 'react-icons/md'
+
+import styles from './ActionPost.module.scss'
 import { useActionPost } from './useActionPost'
 
 interface Props {
@@ -12,9 +13,7 @@ interface Props {
 
 const ActionPost: FC<Props> = ({ post }) => {
 	const {
-		isDisliked,
-		isLiked,
-		isFavorited,
+		optimisticState,
 		handleToggleLike,
 		handleToggleDislike,
 		handleToggleFavorite
@@ -23,24 +22,24 @@ const ActionPost: FC<Props> = ({ post }) => {
 	return (
 		<div className={styles.buttons}>
 			<button
-				className={clsx(styles.crudButton, {
-					[styles.active]: isFavorited
+				className={clsx(styles.actionButton, {
+					[styles.active]: optimisticState.isFavorited
 				})}
 				onClick={() => handleToggleFavorite()}
 			>
 				<MdStarOutline />
 			</button>
 			<button
-				className={clsx(styles.crudButton, {
-					[styles.active]: isLiked
+				className={clsx(styles.actionButton, {
+					[styles.active]: optimisticState.isLiked
 				})}
 				onClick={() => handleToggleLike()}
 			>
 				<BsArrowUp />
 			</button>
 			<button
-				className={clsx(styles.crudButton, {
-					[styles.active]: isDisliked
+				className={clsx(styles.actionButton, {
+					[styles.active]: optimisticState.isDisliked
 				})}
 				onClick={() => handleToggleDislike()}
 			>

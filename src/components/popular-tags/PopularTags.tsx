@@ -23,7 +23,9 @@ const PopularTags: FC<Props> = ({ tags }) => {
 	return (
 		<div className={styles.popular}>
 			<h3>Most Search Tags : </h3>
-			<ScrollLayout width='70%'>
+			<ScrollLayout style={{
+				width: '70%'
+			}}>
 				{tags && tags.length ? (
 					<div className={styles.tags}>
 						{tags.map(item => (

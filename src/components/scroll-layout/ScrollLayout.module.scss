@@ -1,3 +1,7 @@
 .scroll {
 	overflow-x: auto;
 }
+.scroll::-webkit-scrollbar {
+	height: 4px;
+	width: 5px;
+}

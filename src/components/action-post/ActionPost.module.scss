@@ -1,7 +1,7 @@
 .buttons {
 	display: flex;
 	gap: 5px;
-	.crudButton {
+	.actionButton {
 		padding: 7px;
 		border-radius: 5px;
 		background-color: transparent;
@@ -9,7 +9,7 @@
 		transition: background-color 0.5s;
 		color: var(--text-main-color);
 	}
-	.crudButton:first-child {
+	.actionButton:first-child {
 		&:hover {
 			background-color: var(--bg-yellow-transparent);
 		}
@@ -17,7 +17,7 @@
 			background-color: var(--bg-yellow-transparent);
 		}
 	}
-	.crudButton:nth-child(2) {
+	.actionButton:nth-child(2) {
 		&:hover {
 			background-color: var(--bg-blue-transparent);
 		}
@@ -25,7 +25,7 @@
 			background-color: var(--bg-blue-transparent);
 		}
 	}
-	.crudButton:nth-child(3) {
+	.actionButton:nth-child(3) {
 		&:hover {
 			background-color: var(--bg-red-transparent);
 		}

@@ -1,10 +1,12 @@
 'use client'
 
+import { LINKS } from '@/shared/constants/links'
 import { Post } from '@/shared/interfaces/post.interface'
 import { itemVariants, variants } from '@/shared/motion/variants'
 import Tag from '@/shared/ui/tag/Tag'
 import UserAvatar from '@/shared/ui/user-avatar/UserAvatar'
 import { addFullUrl } from '@/shared/utils/addFullUrl'
+import { connectUrl } from '@/shared/utils/connectUrl'
 import { formatDate } from '@/shared/utils/formatDate'
 import clsx from 'clsx'
 import { motion } from 'framer-motion'
@@ -13,13 +15,12 @@ import Link from 'next/link'
 import { FC } from 'react'
 
 import styles from './PopularPost.module.scss'
-import { LINKS } from '@/shared/constants/links'
-import { connectUrl } from '@/shared/utils/connectUrl'
 
 interface Props {
 	size?: keyof typeof sizes
 	post: Post
 	tag: string
+	ref?: any
 }
 
 const sizes = {
@@ -27,7 +28,7 @@ const sizes = {
 	big: styles.big
 }
 
-const PopularPost: FC<Props> = ({ size = 'big', post, tag }) => {
+const PopularPost: FC<Props> = ({ size = 'big', post, tag, ref }) => {
 	return (
 		<motion.div
 			variants={variants}
@@ -38,6 +39,7 @@ const PopularPost: FC<Props> = ({ size = 'big', post, tag }) => {
 			transition={{
 				duration: 0.2
 			}}
+			ref={ref}
 			className={clsx(styles.popular, sizes[size])}
 		>
 			<Link href={connectUrl(LINKS.POST, '/', post?.id.toString())}>
@@ -49,7 +51,7 @@ const PopularPost: FC<Props> = ({ size = 'big', post, tag }) => {
 					height={1000}
 					className={styles.background}
 				/>
-				<div className={styles.content__popular}>
+				<div className={styles.contentPopular}>
 					<motion.div
 						variants={itemVariants}
 						initial='init'
@@ -89,7 +91,7 @@ const PopularPost: FC<Props> = ({ size = 'big', post, tag }) => {
 							}}
 							className={styles.detalis}
 						>
-							<UserAvatar alt='Tom' size='small' />
+							<UserAvatar src={post?.author?.avatar} alt='Tom' size='small' />
 							<p className={styles.authorName}>
 								{post?.author?.firstName} {post?.author?.lastName}
 							</p>

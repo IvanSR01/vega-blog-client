@@ -1,8 +1,11 @@
 'use client'
+
 import store from '@/store/store'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { FC, PropsWithChildren, useEffect } from 'react'
 import { Provider } from 'react-redux'
+
 import ThemeProvider from './ThemeProvider'
 
 export const queryClient = new QueryClient()
@@ -12,13 +15,13 @@ const AppProvider: FC<PropsWithChildren> = ({ children }) => {
 		if ('serviceWorker' in navigator) {
 			navigator.serviceWorker
 				.register('/workers/sw.js')
-				.then((registration) => {
+				.then(registration => {
 					console.log(
 						'Service Worker registered with scope:',
 						registration.scope
 					)
 				})
-				.catch((error) => {
+				.catch(error => {
 					console.error('Service Worker registration failed:', error)
 				})
 		}
@@ -26,6 +29,7 @@ const AppProvider: FC<PropsWithChildren> = ({ children }) => {
 	return (
 		<Provider store={store}>
 			<QueryClientProvider client={queryClient}>
+				<ReactQueryDevtools initialIsOpen={false} />
 				<ThemeProvider>{children}</ThemeProvider>
 			</QueryClientProvider>
 		</Provider>

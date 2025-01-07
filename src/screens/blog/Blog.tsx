@@ -4,6 +4,7 @@ import { Post } from '@/shared/interfaces/post.interface'
 import dynamic from 'next/dynamic'
 import { FC } from 'react'
 
+import styles from './Blog.module.scss'
 
 const MorePost = dynamic(() => import('./MorePost'))
 
@@ -12,13 +13,18 @@ interface Props {
 }
 
 const Blog: FC<Props> = ({ posts }) => {
+	
 	return (
-		<>
 			<SideBar>
-				<ManyPost title='Blog' baseGridColumn='repeat(1, 1fr)' posts={posts} />
+				<div className={styles.content}>
+					<ManyPost
+						title='Blog'
+						baseGridColumn='repeat(1, 1fr)'
+						posts={posts}
+					/>
+					<MorePost />
+				</div>
 			</SideBar>
-			<MorePost />
-		</>
 	)
 }
 export default Blog

@@ -14,7 +14,7 @@
 		border-radius: 10px;
 		filter: brightness(70%);
 	}
-	.content__popular {
+	.contentPopular {
 		display: flex;
 		flex-direction: column;
 		justify-content: flex-end;
@@ -36,14 +36,15 @@
 	flex-grow: 1;
 	min-height: 700px;
 	@media (max-width: 800px) {
-		height: 500px;
+		height: 460px;
+		min-width: 100%;
 		min-height: 0px;
 	}
-	.content__popular {
+	.contentPopular {
 		padding: clamp(20px, 2vw, 30px);
 	}
 	.title {
-		font-size: clamp(24px, 2vw, 32px);
+		font-size: clamp(20px, 2vw, 32px);
 	}
 	.detalis {
 		.authorName {
@@ -58,7 +59,7 @@
 	@media (max-width: 800px) {
 		height: 250px;
 	}
-	.content__popular {
+	.contentPopular {
 		padding: clamp(10px, 2vw, 20px);
 	}
 	.title {

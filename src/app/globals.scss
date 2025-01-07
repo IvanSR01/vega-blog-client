@@ -56,7 +56,6 @@ body {
 
 body {
 	background-color: var(--bg-main-color);
-	transition: background-color 0.3s ease;
 }
 
 body::selection {
@@ -83,11 +82,22 @@ body::-moz-selection {
 	background-color: #555;
 }
 
-
 .ql-container {
 	border-radius: 5px !important;
 	border: 1px solid #ccc !important;
 	min-height: 40dvh;
+	* {
+		color: var(--text-main-color) !important;
+	}
+}
+
+/* Для темной темы */
+body[data-theme='dark'] .ql-container {
+	color: var(
+		--text-sub-color
+	); /* Устанавливаем более светлый цвет для текста */
+	background-color: var(--bg-sub-color); /* Устанавливаем фон для контента */
+	border: 1px solid var(--border-main-color); /* Можешь изменить цвет границы на более темный */
 }
 
 .swiper-pagination {

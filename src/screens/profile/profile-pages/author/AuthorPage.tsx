@@ -1,6 +1,7 @@
 'use client'
 
 import ScrollLayout from '@/components/scroll-layout/ScrollLayout'
+import { useProfile } from '@/hooks/useProfile'
 import { LINKS } from '@/shared/constants/links'
 import dynamic from 'next/dynamic'
 import { useRouter } from 'next/navigation'
@@ -14,9 +15,10 @@ const Banner = dynamic(() => import('../../../../components/banner/Banner'), {
 const AuthorPosts = dynamic(() => import('./author-post/AuthorPosts'))
 const AuthorPage: FC = () => {
 	const { push } = useRouter()
+	const { profile } = useProfile()
 	return (
 		<div className={styles.authorPage}>
-			<Banner />
+			<Banner profile={profile} />
 			<div className={styles.content}>
 				<ScrollLayout>
 					<div className={styles.buttons}>

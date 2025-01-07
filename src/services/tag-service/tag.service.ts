@@ -1,10 +1,11 @@
-import { accessApi } from '@/$api/axios.api'
+import { accessApi, defaultApi } from '@/$api/axios.api'
 import { Tag } from '@/shared/interfaces/tag.interface'
+
 import { CreateTagDto, UpdateTagDto } from './tag.dto'
 
 class TagService {
 	async getTags(limit?: number): Promise<Tag[]> {
-		const { data } = await accessApi<Tag[]>({
+		const { data } = await defaultApi<Tag[]>({
 			method: 'GET',
 			url: `/tag?${limit ? `limit=${limit}` : ''}`
 		})

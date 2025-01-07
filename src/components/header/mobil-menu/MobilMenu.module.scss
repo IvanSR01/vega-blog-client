@@ -36,8 +36,9 @@
 			.nav {
 				display: flex;
 				flex-direction: column;
-				gap: 20px;
+				gap: 0px;
 				a {
+					padding: 10px 0px;
 					color: var(--text-sub-color);
 					font-size: 22px;
 					font-weight: 500;

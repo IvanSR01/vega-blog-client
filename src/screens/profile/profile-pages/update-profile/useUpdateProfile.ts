@@ -5,6 +5,7 @@ import { useUpload } from '@/hooks/useUpload'
 import userService from '@/services/user-service/user.service'
 import { User } from '@/shared/interfaces/user.interface'
 import { FileResponse } from '@/shared/types/file.type'
+import { addFullUrl } from '@/shared/utils/addFullUrl'
 import { useMutation } from '@tanstack/react-query'
 import { useMemo, useState } from 'react'
 import { toast } from 'react-toastify'
@@ -14,6 +15,8 @@ export const useUpdateProfile = () => {
 	const [image, setImage] = useState<string>(profile?.avatar)
 	const updateAvatar = (file: FileResponse | null) =>
 		setImage(file ? `/${file?.path.replaceAll('\\', '/')}` : '')
+
+	console.log(addFullUrl(image))
 
 	const { upload } = useUpload(updateAvatar)
 	const { mutate } = useMutation({

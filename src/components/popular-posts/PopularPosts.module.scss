@@ -1,60 +1,25 @@
 .wrapper {
-  width: 100%;
-  .items {
-    display: flex;
-    gap: 20px;
+	width: 100%;
+	.items {
+		display: flex;
+		gap: 20px;
 
-    .col {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      grid-gap: 20px;
+		.col {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			grid-gap: 20px;
 
-      @media (max-width: 1200px) {
-        grid-template-columns: repeat(1, 1fr) !important;
-      }
-    }
+			@media (max-width: 1200px) {
+				grid-template-columns: repeat(1, 1fr) !important;
+			}
+		}
 
-    @media (max-width: 800px) {
-      display: none; 
-    }
-  }
-
-	.slider {
-		@media (min-width: 800px) {
+		@media (max-width: 800px) {
 			display: none;
 		}
-		position: relative;
-		.swiper-button-prev,
-		.swiper-button-next {
-			position: absolute;
-			top: 50%;
-			transform: translateY(-50%);
-			width: 30px;
-			height: 30px;
-			background-color: var(--accent-dark-color);
-			border-radius: 5px;
-			z-index: 10;
-			cursor: pointer;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			color: white;
-		}
-	
-		.swiper-button-prev {
-			left: -10px; 
-		}
-	
-		.swiper-button-next {
-			right: -10px; 
-		}
-	
-		.swiper-button-prev::after,
-		.swiper-button-next::after {
-			font-size: 16px; 
-			color: white;
-		}
 	}
+
+	
 	.notFound {
 		width: 100%;
 		min-height: 70vh;

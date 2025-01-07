@@ -1,12 +1,10 @@
 'use client'
 
-import { useProfile } from '@/hooks/useProfile'
 import { LINKS } from '@/shared/constants/links'
 import { User } from '@/shared/interfaces/user.interface'
 import { itemVariants } from '@/shared/motion/variants'
 import UserAvatar from '@/shared/ui/user-avatar/UserAvatar'
 import { motion } from 'framer-motion'
-import parse from 'html-react-parser'
 import { useRouter } from 'next/navigation'
 import { FC } from 'react'
 import {
@@ -22,8 +20,11 @@ import styles from './Banner.module.scss'
 import useBanner from './useBanner'
 import { useFollow } from './useFollow'
 
-const Banner: FC = () => {
-	const { profile } = useProfile()
+interface Props {
+	profile: User
+}
+
+const Banner: FC<Props> = ({ profile }) => {
 	const { isAuthorPage, isYourProfile } = useBanner(profile as User)
 	const { isFollow, toggleFollow } = useFollow(profile?.id as number)
 	const { push } = useRouter()
@@ -42,6 +43,7 @@ const Banner: FC = () => {
 				<div className={styles.user}>
 					<UserAvatar
 						alt={profile?.firstName + ' ' + profile?.lastName}
+						src={profile?.avatar}
 						size='large'
 					/>
 					<div className={styles.details}>
@@ -82,9 +84,7 @@ const Banner: FC = () => {
 					)}
 				</div>
 			</div>
-			<div className={styles.description}>
-				{parse(profile?.description || '')}
-			</div>
+			<div className={styles.description}>{profile?.description}</div>
 			{isAuthorPage ? (
 				<div className={styles.subCount}>
 					<div className={styles.count}>

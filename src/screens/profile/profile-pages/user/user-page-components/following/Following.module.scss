@@ -1,0 +1,42 @@
+.following {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	.item {
+		border: 2px solid var(--border-main-color);
+		border-radius: 8px;
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		align-items: center;
+		padding: 15px 20px;
+		.info {
+			display: flex;
+			align-items: center;
+			gap: 10px;
+			.name {
+				display: flex;
+				flex-direction: column;
+				.slug {
+					font-size: clamp(14px, 1.2vw, 16px);
+					font-weight: 500;
+					color: var(--text-sub-color);
+					margin: none;
+				}
+				.fullName {
+					font-size: clamp(14px, 1.2vw, 16px);
+					margin: none;
+					font-weight: 500;
+					color: var(--text-main-color);
+				}
+			}
+		}
+		.unSubscribe {
+			width: 120px;
+			background-color: var(--danger-color);
+			font-weight: bold;
+		}
+	}
+}

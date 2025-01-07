@@ -1,11 +1,18 @@
 'use client'
-import { FC, PropsWithChildren } from 'react'
-import styles from './SideBar.module.scss'
-import Image from 'next/image'
-import { useSideBar } from './useSideBar'
+
+import { LINKS } from '@/shared/constants/links'
+import { itemVariants } from '@/shared/motion/variants'
 import { addFullUrl } from '@/shared/utils/addFullUrl'
+import { connectUrl } from '@/shared/utils/connectUrl'
 import { formatDate } from '@/shared/utils/formatDate'
+import { motion } from 'framer-motion'
+import Image from 'next/image'
+import Link from 'next/link'
+import { FC, PropsWithChildren } from 'react'
+
 import Loader from '../loader/Loader'
+import styles from './SideBar.module.scss'
+import { useSideBar } from './useSideBar'
 
 interface Props {
 	CommonComponent?: FC
@@ -19,7 +26,15 @@ const SideBar: FC<PropsWithChildren<Props>> = ({
 	return (
 		<div className={styles.layoutSideBar}>
 			{children}
-			<div className={styles.sideBar}>
+			<motion.div
+				variants={itemVariants}
+				initial='init'
+				animate={'animate'}
+				transition={{
+					duration: 0.5
+				}}
+				className={styles.sideBar}
+			>
 				<div className={styles.contentSideBar}>
 					{CommonComponent && <CommonComponent />}
 					<div className={styles.popularPostS}>
@@ -72,12 +87,17 @@ const SideBar: FC<PropsWithChildren<Props>> = ({
 									{popularTags && popularTags.length > 0 ? (
 										<>
 											{popularTags.map((item, index) => (
-												<div className={styles.category} key={index}>
-													<div className={styles.text}>{item.name}</div>
-													<div className={styles.countPost}>
-														{item.postCount}
+												<Link
+													href={connectUrl(LINKS.BLOG, '/', item.name)}
+													key={index}
+												>
+													<div className={styles.category}>
+														<div className={styles.text}>{item.name}</div>
+														<div className={styles.countPost}>
+															{item.postCount}
+														</div>
 													</div>
-												</div>
+												</Link>
 											))}
 										</>
 									) : (
@@ -88,7 +108,7 @@ const SideBar: FC<PropsWithChildren<Props>> = ({
 						)}
 					</div>
 				</div>
-			</div>
+			</motion.div>
 		</div>
 	)
 }

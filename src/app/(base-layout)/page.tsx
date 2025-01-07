@@ -1,24 +1,16 @@
+import { fetchHomeData } from '@/$api/home.api'
 import Home from '@/screens/home/Home'
-import postService from '@/services/post-service/post.service'
-import tagService from '@/services/tag-service/tag.service'
-
-const fetchData = async () => {
-	try {
-		const res = await Promise.all([
-			await postService.getMostViewedPosts(5),
-			await postService.getPosts({ limit: 6 }),
-			await tagService.getTags(10)
-		])
-		return res
-	} catch {
-		return [[], [], []]
-	}
-}
 
 const page = async () => {
-	const [mostViewedPosts, posts, tags] = await fetchData()
-	return <Home mostViewedPosts={mostViewedPosts} posts={posts} tags={tags} />
+	const [mostViewedPosts, posts, tags, quote] = await fetchHomeData()
+	return (
+		<Home
+			mostViewedPosts={mostViewedPosts}
+			posts={posts}
+			tags={tags}
+			quote={quote}
+		/>
+	)
 }
 
 export default page
-
