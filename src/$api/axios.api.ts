@@ -35,6 +35,7 @@ accessApi.interceptors.response.use(
 				return accessApi.request(originalRequest)
 			} catch (e) {
 				if (useError(e) === 'jwt expired' || 'Unauthorized') removeTokens()
+					console.log(e)
 			}
 		}
 		throw error
