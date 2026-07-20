@@ -8,7 +8,7 @@ const pwa = withPWA({
 })
 
 const nextConfig: NextConfig = {
-	/* config options here */ env: {
+	 env: {
 		NEST_PUBLIC_API_URL: process.env.NEST_PUBLIC_API_URL,
 		EMAIL_USERNAME: process.env.EMAIL_USERNAME,
 		EMAIL_PASSWORD: process.env.EMAIL_PASSWORD,
