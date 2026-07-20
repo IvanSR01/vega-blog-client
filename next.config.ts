@@ -25,8 +25,8 @@ const nextConfig: NextConfig = {
 		ignoreBuildErrors: true
 	},
 	sassOptions: {
-		silenceDeprecations: ['legacy-js-api']
-	},
+    silenceDeprecations: ['mixed-decls'],
+  },
 }
 
 export default pwa(nextConfig as any)
