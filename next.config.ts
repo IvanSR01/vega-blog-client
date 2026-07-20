@@ -15,14 +15,12 @@ const nextConfig: NextConfig = {
 		EMAIL_RECIPIENT: process.env.EMAIL_RECIPIENT,
 		EMAIL_SERVICE: process.env.EMAIL_SERVICE
   },
-  rewrites: async () => {
-    return [
-      {
-        source: `${process.env.NEST_PUBLIC_API_URL}/:path*`,
-        destination: '/api/:path*'
-      }
-    ]
-  },
+  rewrites: async () => [
+    {
+      source: '/api/:path*',
+      destination: `${process.env.NEST_PUBLIC_API_URL}/:path*`,
+    },
+  ],
 	typescript: {
 		ignoreBuildErrors: true
 	},
