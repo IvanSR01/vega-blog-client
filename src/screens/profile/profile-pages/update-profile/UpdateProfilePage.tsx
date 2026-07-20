@@ -32,6 +32,15 @@ const UpdateProfilePage: FC = () => {
 
 	useEffect(() => {
 		if (profile?.social) {
+
+			// Это я ща написал
+			Object.entries(profile.social).forEach(([key, value]) => {
+				if (value) {
+					setSocial({ ...social, [key]: value })
+				}
+			})
+
+			// это было написано 17 месяцев назад
 			if (profile.social.facebook)
 				setSocial({ ...social, facebook: profile.social.facebook })
 			if (profile.social.twitter)

@@ -2,7 +2,7 @@ import authService from "@/services/auth-service/auth.service";
 import { TypeLogin, TypeRegister } from "@/shared/types/auth.type";
 import { TypeTokens } from "@/shared/types/tokens.type";
 import { useMutation } from "@tanstack/react-query";
-import { useMemo } from "react";
+import { useCallback, useMemo } from "react";
 
 export enum AuthApi {
 	LOGIN = "login",
@@ -29,9 +29,10 @@ export const useAuth = <T = TypeLogin | TypeRegister | undefined, V = TypeTokens
     onError,
     onSuccess,
   });
-  const onSubmit = (data: T) => {
+
+  const onSubmit = useCallback((data: T) => {
     mutate(data);
-  };
+  }, [mutate]);
+
   return useMemo(() => ({ onSubmit, isPending }), [onSubmit, isPending]);
 };
-
